@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>PrjVimCfg</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+</head>
+<body>
+
+<p>
+<a href="Vim_Home.html">返回上一级</a>
+</p>
+
+<div id="使用步骤"><h3 id="使用步骤" class="header"><a href="#使用步骤">使用步骤</a></h3></div>
+<ul>
+<li>
+在代码根目录新建 Prj.vim 文件
+
+<li>
+打开Prj.vim文件,并复制下面代码到Prj.vim中
+
+<li>
+复制代码路径到4个路径位置替换
+
+<li>
+使用:path\/命令将目录\改为/
+
+<li>
+保存Prj.vim并关闭重新打开
+
+</ul>
+
+<pre>
+" Lookup File
+" Author: happyvim
+" Function: ProjectTagUpdateLookupFile
+" Args:
+" Description: regenerate lookupfile tags
+function! ProjectTagUpdateLookupFile()
+    "echo "generate lookupfile.tag"
+    if filereadable(g:project_lookup_file)
+        call delete(g:project_lookup_file)
+    endif
+    execute "cd " .  g:this_project_base_dir
+    let l:lookup_tags = ["!_TAG_FILE_SORTED    2    \/2=foldcase\/"]
+    if has("win32")
+        let l:this_project_base_dir = substitute(g:this_project_base_dir, "/", "\\", "g") . "\\"
+    else
+        let l:this_project_base_dir = g:this_project_base_dir
+    endif
+    "let l:lookup_tags_file_string = system(g:project_find_program . " " . l:this_project_base_dir . " " . g:project_find_param)
+    let l:lookup_tags_file_string = system(g:project_find_program . " " . g:project_find_param)
+    let l:lookup_tags_file_list = split(l:lookup_tags_file_string, '\n')
+    let l:lookup_tags_file_list = sort(l:lookup_tags_file_list)
+    let l:item = ""
+    let l:count = 0
+
+    for l:item in l:lookup_tags_file_list
+        let l:item = fnamemodify(l:item, ':t') . "\t" . l:item . "\t" . "1"
+        let l:lookup_tags_file_list[l:count] = l:item
+        let l:count = l:count + 1
+    endfor
+
+    call extend(l:lookup_tags, l:lookup_tags_file_list)
+    call writefile(l:lookup_tags, g:project_lookup_file)
+    "echo "generate lookupfile tag done"
+endfunction
+"dir /B /S /A-D /ON *.fnc *.prc *.trg *.pck *.typ *.spc *.bdy *.tps *.tpb *.txt *.sql &gt; filenametags
+"dir /B /S /A-D /ON | findstr /V ".class$ .xls$ .doc$ .ppt$ .pdf$ .jpg$ .gif$ .zip$ .rar$ .jar$ .dat$ .mdb$ .dmp$ " &gt; filenametags
+cab lookupfile &lt;ESC&gt;:call ProjectTagUpdateLookupFile()&lt;cr&gt;
+let g:project_find_program  = "dir /B /S /A-D /ON"
+let g:project_find_param    = "*.fnc *.prc *.trg *.pck *.typ *.spc *.bdy *.tps *.tpb *.txt *.sql *.c *.h *.py"
+let g:this_project_base_dir = "D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code"
+let g:project_lookup_file   = "D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code/filenametags"
+let g:LookupFile_TagExpr    ='"D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code/filenametags"'
+
+"头文件处 gf打开该头文件
+set path+=D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code/**
+
+nnoremap &lt;A-=&gt; &lt;ESC&gt;0f{c0&lt;backspace&gt;&lt;ESC&gt;
+
+"filenametags 不存在自动创建
+if filereadable("filenametags")
+
+else
+    execute "call ProjectTagUpdateLookupFile()"
+endif
+
+"cscope.out 存在自动连接
+if filereadable("cscope.out")
+    execute "cs add cscope.out"
+else
+    execute "call Do_CsTag()"
+endif 
+
+</pre>
+
+</body>
+</html>

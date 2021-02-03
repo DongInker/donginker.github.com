@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>VimInstall</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+</head>
+<body>
+
+<p>
+<a href="Vim_Home.html">返回上一级</a>
+</p>
+
+<div id="目录"><h1 id="目录" class="header"><a href="#目录">目录</a></h1></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="VimInstall.html#安装环境">安装环境</a>
+
+<li>
+<a href="VimInstall.html#安装步骤">安装步骤</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件">使用vundle管理Vim插件</a>
+
+<ul>
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-vimwiki">vimwiki</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-自动补全 ( { [ &quot; '">自动补全 ( { [ " '</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-切换 .c 与 .h文件">切换 .c 与 .h文件</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-顶部标签栏">顶部标签栏</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-winmannger.vim">winmannger.vim</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-lookupfile">lookupfile</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-other">other</a>
+
+</ul>
+</ul>
+
+<div id="目录-安装环境"><h2 id="安装环境" class="header"><a href="#目录-安装环境">安装环境</a></h2></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+Git 
+
+<li>
+win10
+
+</ul>
+
+<div id="目录-安装步骤"><h2 id="安装步骤" class="header"><a href="#目录-安装步骤">安装步骤</a></h2></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+下载vim82并安装
+
+<li>
+<a href="https://github.com/DongInker/VimCfg.git">克隆vimCfg配置工程</a>
+
+<li>
+将vimCfg\_vimrc复制替换C:\Program Files (x86)\Vim\_vimrc文件
+
+<li>
+双击运行vimCfg\插件管理\vimcdoc-2.1.0-setup.exe汉化vim帮助
+
+<li>
+将vimCfg\插件管理\cscope.exe ctage.exe复制到C:\Program Files (x86)\Vim\vim82目录下
+
+<li>
+将vimCfg\修改vim\c.vim复制到C:\Program Files (x86)\Vim\vim82\syntax目录下替换
+
+<ul>
+<li>
+修改编写C语言时,凸显结构体变量
+
+</ul>
+<li>
+将vimCfg\修改vim\matchit.vim复制到C:\Program Files (x86)\Vim\vim82\macros目录下替换
+
+<ul>
+<li>
+修改编写Verilog语言时，begin end等配对词之间用%进行跳转
+
+</ul>
+<li>
+双击vimCfg\字体\Hack-Regular.ttf进行安装Vim调用字体
+
+<li>
+将<a href="https://github.com/VundleVim/Vundle.vim.git">Vundle.vim</a>使用git克隆到vim安装目录 $VIM\vimfiles\bundle目录下<br/>
+      或者将vimCfg\Vundle\Vundle.vim.rar解压复制到$VIM\vimfiles\bundle目录下
+
+<li>
+启动Vim命令输入PluginInstall执行安装需要的其他插件
+
+<li>
+常用快捷键参考vimCfg\常用命令学习.txt
+
+</ul>
+
+<div id="目录-使用vundle管理Vim插件"><h2 id="使用vundle管理Vim插件" class="header"><a href="#目录-使用vundle管理Vim插件">使用vundle管理Vim插件</a></h2></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+
+<div id="目录-使用vundle管理Vim插件-vimwiki"><h3 id="vimwiki" class="header"><a href="#目录-使用vundle管理Vim插件-vimwiki">vimwiki</a></h3></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+在vim编写wiki
+
+<li>
+_vimrc Vundle 代码
+<pre>
+
+"------------------------------------------------
+"vimwiki
+"""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'vimwiki/vimwiki'
+
+"按F4转为html, &lt;leader&gt;whh 用浏览器打开
+let g:vimwiki_table_auto_fmt = 0
+let g:vimwiki_CJK_length = 1 
+let g:vimwiki_camel_case = 0 
+let g:vimwiki_use_mouse = 1
+
+if 0
+Plugin 'JamshedVesuna/vim-markdown-preview'
+let g:vimwiki_list = [{'path': 'D:/vimwiki/',
+                     \ 'path_html': 'D:/vimwiki/',
+                     \ 'syntax': 'markdown', 'ext': '.md',
+                     \ 'html_header': 'D:/vimwiki/template/header.tpl',}] 
+else
+let wiki = {}
+"设定vimwiki的路径
+let wiki.path = 'D:/vimwiki/'
+"设定html代码的路径
+let wiki.path_html = 'D:/vimwiki/'
+"保存自动添加更新目录
+let wiki.auto_toc = 1
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'c': 'c'}
+let g:vimwiki_list = [wiki]
+"let g:vimwiki_browsers=['C:\Program Files\internet explorer\iexplore.exe']
+map &lt;F4&gt; :Vimwiki2HTML&lt;cr&gt;
+map &lt;S-F4&gt; :VimwikiAll2HTML&lt;cr&gt;
+endif
+
+</pre>
+
+</ul>
+
+<div id="目录-使用vundle管理Vim插件-自动补全 ( { [ &quot; '"><h3 id="自动补全 ( { [ &quot; '" class="header"><a href="#目录-使用vundle管理Vim插件-自动补全 ( { [ &quot; '">自动补全 ( { [ " '</a></h3></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+自动补全 ( { [ " '
+
+<li>
+_vimrc Vundle 代码
+
+<li>
+开关自动补全代码快捷冲突 所以将alt+p改为alt+u
+
+<li>
+可视模式下,给选择字符添加()
+<pre>
+
+"------------------------------------------------
+"自动补全 ( { [ " '
+"""""""""""""""""""""""""""""""""""""""""""""""""
+if 1
+    Plugin 'jiangmiao/auto-pairs'
+    let g:AutoPairsShortcutToggle = '&lt;M-u&gt;'
+    :vnoremap ( &lt;esc&gt;`&lt;i(&lt;esc&gt;`&gt;a)&lt;esc&gt;
+else
+    function! AutoPair(open, close)
+      let line = getline('.')
+      if col('.') &gt; strlen(line) || line[col('.') - 1] == ' '
+        return a:open.a:close."\&lt;ESC&gt;i"
+      else
+        return a:open
+      endif
+    endf
+
+    function! ClosePair(char)
+        if getline('.')[col('.') - 1] == a:char
+            return "\&lt;Right&gt;"
+        else
+            return a:char
+        endif
+    endfunction
+
+    "自动补全条件:一是光标在行末 二是光标下一个字符是空格
+    :inoremap ( &lt;c-r&gt;=AutoPair('(', ')')&lt;CR&gt;
+    "":inoremap ( ()&lt;ESC&gt;i
+    :inoremap ) &lt;c-r&gt;=ClosePair(')')&lt;CR&gt;
+    :inoremap { {&lt;CR&gt;}&lt;ESC&gt;O
+    :inoremap } &lt;c-r&gt;=ClosePair('}')&lt;CR&gt;
+    :inoremap [ []&lt;ESC&gt;i
+    :inoremap ] &lt;c-r&gt;=ClosePair(']')&lt;CR&gt;
+    :inoremap " ""&lt;ESC&gt;i
+    :inoremap ' ''&lt;ESC&gt;i
+endif
+
+</pre>
+
+</ul>
+
+<div id="目录-使用vundle管理Vim插件-切换 .c 与 .h文件"><h3 id="切换 .c 与 .h文件" class="header"><a href="#目录-使用vundle管理Vim插件-切换 .c 与 .h文件">切换 .c 与 .h文件</a></h3></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+F9 切换 .c 与 .h文件
+
+<li>
+_vimrc Vundle 代码
+<pre>
+
+"------------------------------------------------
+"a.vim    切换"F9 却换.h 与 .c文件
+"""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'a.vim'
+
+":A :AS :AV 头/源文件切换,窗口分为左右两个窗口，并打开.h/.c文件
+nnoremap &lt;silent&gt; &lt;F9&gt; :AV&lt;cr&gt;
+let g:alternateSearchPath = 'sfr:./,sfr:../include,sfr:http://www.cnblogs.com/include,sfr:../source,sfr:../src,sfr:../inc'
+
+</pre>
+
+</ul>
+
+<div id="目录-使用vundle管理Vim插件-顶部标签栏"><h3 id="顶部标签栏" class="header"><a href="#目录-使用vundle管理Vim插件-顶部标签栏">顶部标签栏</a></h3></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+顶部标签栏
+
+<li>
+_vimrc Vundle 代码
+<pre>
+"------------------------------------------------
+"minibufexplpp.vim 多文档顶部标签栏编辑
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" 使用会出现多个标签栏 严重影响体验
+if 0
+    Plugin 'minibufexpl.vim'
+    "操作:&lt;C-Tab&gt;前一项 &lt;C-Shift-Tab&gt;后一项 :Nb快速打开指定编号N文件
+    let g:miniBufExplMapWindowNavArrows = 1
+    "let g:miniBufExplMapWindowNavVim = 1
+    "let g:miniBufExplMapCTabSwitchbufs = 1
+    let g:miniBufExplModSelTarget = 1
+    "解决FileExplorer窗口变小问题
+    let g:miniBufExplForceSyntaxEnable = 1
+    let g:miniBufExplorerMoreThanOne = 2
+endif
+</pre>
+
+</ul>
+
+<div id="目录-使用vundle管理Vim插件-winmannger.vim"><h3 id="winmannger.vim" class="header"><a href="#目录-使用vundle管理Vim插件-winmannger.vim">winmannger.vim</a></h3></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+wm
+
+<li>
+_vimrc Vundle 代码
+<pre>
+
+"------------------------------------------------
+"winmannger.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'winmanager'
+
+"配置FileExplorer
+let g:winManagerWindowLayout='FileExplorer|TagList'  "将winmanager设置成浏览器和TagList的组合
+"映射winmanager的快捷键
+nmap wm :WMToggle&lt;cr&gt;
+
+</pre>
+
+</ul>
+
+<div id="目录-使用vundle管理Vim插件-lookupfile"><h3 id="lookupfile" class="header"><a href="#目录-使用vundle管理Vim插件-lookupfile">lookupfile</a></h3></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+搜索打开文件 
+
+<li>
+_vimrc Vundle 代码
+<pre>
+
+"------------------------------------------------
+"lookupfile.vim genutils.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'genutils'
+Plugin 'lookupfile'
+
+let g:LookupFile_MinPatLength           = 2 "最少输入2个字符开始匹配
+let g:LookupFile_PreserveLastPattern    = 0 "不保存上次查找的字符串
+let g:LookupFile_PreservePatternHistory = 1 "保存查找历史
+let g:LookupFile_AlwaysAcceptFirst      = 1 "回车打开第一个匹配项目
+let g:LookupFile_AllowNewFiles          = 0 "不允许创建不存在的文件
+
+function! ProjectTagUpdateLookupFile()
+    "echo "generate lookupfile.tag"
+
+    " 使用全局标记当前位置到Z (取巧点:使用全局标记)
+    execute "ma Z"
+    " 跳转编号1的.vim文件 *.vim必须保证编号1文件 (取巧点:1b)
+    execute "1b"
+
+    if filereadable(g:project_lookup_file)
+        call delete(g:project_lookup_file)
+    endif
+    execute "cd " .  g:this_project_base_dir
+    let l:lookup_tags = ["!_TAG_FILE_SORTED    2    \/2=foldcase\/"]
+    if has("win32")
+        let l:this_project_base_dir = substitute(g:this_project_base_dir, "/", "\\", "g") . "\\"
+    else
+        let l:this_project_base_dir = g:this_project_base_dir
+    endif
+    "let l:lookup_tags_file_string = system(g:project_find_program . " " . l:this_project_base_dir . " " . g:project_find_param)
+    let l:lookup_tags_file_string = system(g:project_find_program . " " . g:project_find_param)
+    let l:lookup_tags_file_list = split(l:lookup_tags_file_string, '\n')
+    let l:lookup_tags_file_list = sort(l:lookup_tags_file_list)
+    let l:item = ""
+    let l:count = 0
+
+    for l:item in l:lookup_tags_file_list
+        let l:item = fnamemodify(l:item, ':t') . "\t" . l:item . "\t" . "1"
+        let l:lookup_tags_file_list[l:count] = l:item
+        let l:count = l:count + 1
+    endfor
+
+    call extend(l:lookup_tags, l:lookup_tags_file_list)
+    call writefile(l:lookup_tags, g:project_lookup_file)
+    "echo "generate lookupfile tag done"
+    " 跳转全局标记位置Z
+    execute "'Z"
+endfunction
+let g:project_find_program  = "dir /B /S /A-D /ON"
+let g:project_find_param    = "*.fnc *.prc *.trg *.pck *.typ *.spc *.bdy *.tps *.tpb *.txt *.sql *.c *.h *.py"
+"查找文件名及包含出现字符串的文件
+nmap &lt;silent&gt; ,lf :LUTags&lt;cr&gt;
+"查找已打开的buffer字符名
+nmap &lt;silent&gt; ,ll :LUBufs&lt;cr&gt;
+"指定目录结构查找
+nmap &lt;silent&gt; ,lw :LUWalk&lt;cr&gt;
+",lf 根据文件内容信息打开文件
+
+cab lookupfile &lt;ESC&gt;:call ProjectTagUpdateLookupFile()&lt;cr&gt;
+
+</pre>
+
+</ul>
+
+<div id="目录-使用vundle管理Vim插件-other"><h3 id="other" class="header"><a href="#目录-使用vundle管理Vim插件-other">other</a></h3></div>
+<p>
+<a href="VimInstall.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+_vimrc Vundle 代码
+<pre>
+"------------------------------------------------
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'grep.vim'
+Plugin 'Mark'
+"Plugin 'visualmark'
+
+</pre>
+
+</ul>
+
+</body>
+</html>

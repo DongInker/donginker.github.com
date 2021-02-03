@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>VimWiKiHelp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+</head>
+<body>
+
+<p>
+<a href="VimWiki.html">返回上一级</a>
+</p>
+
+<div id="Contents" class="toc"><h1 id="Contents">Contents</a></h1></div>
+<ul>
+<li>
+<a href="VimWiKiHelp.html#注意事项">注意事项</a>
+
+<li>
+<a href="VimWiKiHelp.html#常用快捷键">常用快捷键</a>
+
+<li>
+<a href="VimWiKiHelp.html#DiaryNote快捷键">DiaryNote快捷键</a>
+
+<li>
+<a href="VimWiKiHelp.html#Tables快捷键">Tables快捷键</a>
+
+<li>
+<a href="VimWiKiHelp.html#My current task">My current task</a>
+
+</ul>
+
+<ul>
+<li>
+<a href="VimwikiSyntax.html">语法效果</a>
+
+</ul>
+
+
+<p>
+adsfsdaf
+</p>
+<ul>
+<li>
+asdfadsf
+      adsfjksd
+
+<li>
+aksdfj
+      aksdfjkd
+
+<li>
+aksjdf
+
+</ul>
+      
+<div id="注意事项"><h1 id="注意事项" class="header"><a href="#注意事项">注意事项</a></h1></div>
+<ul>
+<li>
+转换的网页调用的style.css为绝对路径，如果可以调用指定路径会更灵活
+
+<li>
+调用绝对路径的文件转换html后，为绝对路径，导致复制到其他地方图片失效
+
+<li>
+由于VimWiki编译成html编译，默认使用文件名作为标题，但文件名为中文时，<br/>
+      html输出标题为乱码，导致脚本打开文件出现解码错误报警
+
+<ol>
+<li>
+目前中文文件名时，强制使用 %title title—name 指定一个非中文标题名
+
+<li>
+避免使用中文标题名
+
+</ol>
+</ul>
+
+<div id="常用快捷键"><h1 id="常用快捷键" class="header"><a href="#常用快捷键">常用快捷键</a></h1></div>
+<table>
+<tr>
+<th>
+******
+</th>
+<th>
+*********
+</th>
+<th>
+***************************************************************
+</th>
+</tr>
+<tr>
+<th>
+模式
+</th>
+<th>
+快捷键
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\ww
+</td>
+<td>
+开启wiki并到首页
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\wr
+</td>
+<td>
+Rename wiki page you are in
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\tt
+</td>
+<td>
+Toggle checkbox of a list item on/off
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+F4
+</td>
+<td>
+编译当前页
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+&lt;S-F4&gt;
+</td>
+<td>
+编译所以页---慎用 会导致网页乱码 使用F4单独编译
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\wh
+</td>
+<td>
+Convert current wiki page to HTML
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\whh
+</td>
+<td>
+Convert current wiki page to HTML and open it in the webbrowser
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+&lt;CR&gt;
+</td>
+<td>
+Follow/create wiki link (create target wiki page if needed)
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+=
+</td>
+<td>
+Add header level. Create if needed
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+-
+</td>
+<td>
+Remove header level
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+Backspace
+</td>
+<td>
+返回父页
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+gl*
+</td>
+<td>
+symbol of the current item to *
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+gl#
+</td>
+<td>
+symbol of the current item to #
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+gl-
+</td>
+<td>
+symbol of the current item to -
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+gla
+</td>
+<td>
+symbol of the current item to a)
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+gli
+</td>
+<td>
+symbol of the current item to i)
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+glI
+</td>
+<td>
+symbol of the current item to I)
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+Tab
+</td>
+<td>
+跳到下一个维基词条或链接
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+Shift-Tab
+</td>
+<td>
+跳到上一个维基词条或链接
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+[[        | Go to the previous header in the buffer  上一个标题
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+]]
+</td>
+<td>
+Go to the next     header in the buffer  下一个标题
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+<hr />
+<hr />
+<div id="DiaryNote快捷键"><h1 id="DiaryNote快捷键" class="header"><a href="#DiaryNote快捷键">DiaryNote快捷键</a></h1></div>
+<table>
+<tr>
+<th>
+******
+</th>
+<th>
+*********
+</th>
+<th>
+***************************************************************
+</th>
+</tr>
+<tr>
+<th>
+模式
+</th>
+<th>
+快捷键
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+&lt;C-Up&gt;
+</td>
+<td>
+Open the previous day's diary link if available
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+&lt;C-Down&gt;
+</td>
+<td>
+Open the next day's diary link if available
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\wi
+</td>
+<td>
+opens diary index file of the first wiki from
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\w\w
+</td>
+<td>
+opens diary wiki-file for today in the first wiki
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\w\t
+</td>
+<td>
+opens diary wiki-file for today
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\w\y
+</td>
+<td>
+opens diary wiki-file for yesterday
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+\w\m
+</td>
+<td>
+opens diary wiki-file for tomorrow
+</td>
+</tr>
+</table>
+<hr />
+<hr />
+<div id="Tables快捷键"><h1 id="Tables快捷键" class="header"><a href="#Tables快捷键">Tables快捷键</a></h1></div>
+<table>
+<tr>
+<th>
+******
+</th>
+<th>
+*********
+</th>
+<th>
+***************************************************************
+</th>
+</tr>
+<tr>
+<th>
+模式
+</th>
+<th>
+快捷键
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+gqq
+</td>
+<td>
+Format table
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+&lt;A-Left&gt;
+</td>
+<td>
+Move current table column to the left
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+&lt;A-Right&gt;
+</td>
+<td>
+Move current table column to the right
+</td>
+</tr>
+<tr>
+<td>
+NORMAL
+</td>
+<td>
+vac
+</td>
+<td>
+可视模式选择一列表格
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+INSERT
+</td>
+<td rowspan="2">
+&lt;CR&gt;
+</td>
+<td>
+Go to the table cell beneath the current one, create
+</td>
+</tr>
+<tr>
+<td>
+a new row if on the last one
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+INSERT
+</td>
+<td rowspan="2">
+&lt;Tab&gt;
+</td>
+<td>
+Go to the next table cell, create a new row if on the
+</td>
+</tr>
+<tr>
+<td>
+last cell.
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+INSERT
+</td>
+<td rowspan="2">
+&lt;S-Tab&gt;
+</td>
+<td>
+Go to the next table cell, create a new row if on the
+</td>
+</tr>
+<tr>
+<td>
+last cell.
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+<hr />
+<hr />
+
+<p>
+创建词条:
+</p>
+<ul>
+<li>
+在相应字符上回车
+
+</ul>
+ 
+<p>
+创建连接页
+</p>
+<ul>
+<li>
+在相应词条上回车，并使用&lt;C-O&gt;返回
+
+</ul>
+
+
+<p>
+&lt;C-Space&gt;  Toggle checkbox of a list item on/off <br />
+:map       &lt;Leader&gt;tt &lt;Plug&gt;VimwikiToggleListItem
+</p>
+<div id="My current task"><h1 id="My current task" class="header"><a href="#My current task">My current task</a></h1></div>
+<ul>
+<li class="done0">
+Do stuff 1
+
+<ul>
+<li class="done0">
+Do substuff 1.1
+
+<li class="done0">
+Do substuff 1.2
+
+<ul>
+<li class="done0">
+Do substuff 1.2.1
+
+<li class="done0">
+Do substuff 1.2.2
+
+</ul>
+<li class="done0">
+Do substuff 1.3
+
+</ul>
+<li class="done0">
+Do stuff 2
+
+<li class="done0">
+Do stuff 3
+
+</ul>
+
+</body>
+</html>

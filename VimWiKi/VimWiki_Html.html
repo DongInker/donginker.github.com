@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>VimWiki_Html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+</head>
+<body>
+
+<p>
+<a href="VimWiki.html">返回上一级</a>
+</p>
+
+<div id="环境"><h2 id="环境" class="header"><a href="#环境">环境</a></h2></div>
+<ul>
+<li>
+脚本名称: VimWiki_Html.py
+
+<li>
+Vim     Version:8.2
+
+<li>
+Python  Version:3.8.1
+
+<li>
+Vimwiki Version:2.4.1
+
+<li>
+Win 10 64
+
+</ul>
+
+<div id="为什么要开发"><h2 id="为什么要开发" class="header"><a href="#为什么要开发">为什么要开发</a></h2></div>
+<ul>
+<li>
+转换的网页调用的style.css为绝对路径，如果可以调用指定路径会更灵活
+
+<li>
+调用绝对路径的文件转换html后，为绝对路径，导致复制到其他地方图片失效
+
+</ul>
+
+<div id="功能"><h2 id="功能" class="header"><a href="#功能">功能</a></h2></div>
+<ol>
+<li>
+判断脚本当前目录是否有style.css主题文件，不存在时自动拷贝文件到目录
+
+<li>
+修改目录下所有.html类型文件路径问题
+
+<ul>
+<li>
+修改此文件与当前style.css文件的对应目录
+
+<li>
+修改html文件调用Image文件夹的路径 (图片)
+
+<li>
+修改html文件调用data文件夹的路径  (原理图 数据报表)
+
+</ul>
+</ol>
+
+<div id="版本"><h2 id="版本" class="header"><a href="#版本">版本</a></h2></div>
+<p>
+2020-05-26 13:57:19
+</p>
+<ul>
+<li>
+修改脚本在其他电脑由于路径用户名问题，导致无法拷贝style.css文件问题
+
+</ul>
+
+</body>
+</html>
