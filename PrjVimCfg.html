@@ -3,96 +3,58 @@
 <head>
 <link rel="Stylesheet" type="text/css" href="style.css">
 <title>PrjVimCfg</title>
-<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 
 <p>
-<a href="Vim_Home.html">·µ»ØÉÏÒ»¼¶</a>
+<a href="Vim_Home.html">è¿”å›ä¸Šä¸€çº§</a>
 </p>
 
-<div id="Ê¹ÓÃ²½Öè"><h3 id="Ê¹ÓÃ²½Öè" class="header"><a href="#Ê¹ÓÃ²½Öè">Ê¹ÓÃ²½Öè</a></h3></div>
+<div id="ä½¿ç”¨æ­¥éª¤"><h3 id="ä½¿ç”¨æ­¥éª¤" class="header"><a href="#ä½¿ç”¨æ­¥éª¤">ä½¿ç”¨æ­¥éª¤</a></h3></div>
 <ul>
 <li>
-ÔÚ´úÂë¸ùÄ¿Â¼ĞÂ½¨ Prj.vim ÎÄ¼ş
+åœ¨ä»£ç æ ¹ç›®å½•æ–°å»º Prj.vim æ–‡ä»¶
 
 <li>
-´ò¿ªPrj.vimÎÄ¼ş,²¢¸´ÖÆÏÂÃæ´úÂëµ½Prj.vimÖĞ
+æ‰“å¼€Prj.vimæ–‡ä»¶,å¹¶å¤åˆ¶ä¸‹é¢ä»£ç åˆ°Prj.vimä¸­
 
 <li>
-¸´ÖÆ´úÂëÂ·¾¶µ½4¸öÂ·¾¶Î»ÖÃÌæ»»
+å®é™…é¡¹ç›®è·¯å¾„D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/codeæ›¿æ¢
 
 <li>
-Ê¹ÓÃ:path\/ÃüÁî½«Ä¿Â¼\¸ÄÎª/
+ä½¿ç”¨:path\/å‘½ä»¤å°†ç›®å½•\æ”¹ä¸º/
 
 <li>
-±£´æPrj.vim²¢¹Ø±ÕÖØĞÂ´ò¿ª
+ä¿å­˜Prj.vimå¹¶å…³é—­é‡æ–°æ‰“å¼€
 
 </ul>
 
 <pre>
-" Lookup File
-" Author: happyvim
-" Function: ProjectTagUpdateLookupFile
-" Args:
-" Description: regenerate lookupfile tags
-function! ProjectTagUpdateLookupFile()
-    "echo "generate lookupfile.tag"
-    if filereadable(g:project_lookup_file)
-        call delete(g:project_lookup_file)
-    endif
-    execute "cd " .  g:this_project_base_dir
-    let l:lookup_tags = ["!_TAG_FILE_SORTED    2    \/2=foldcase\/"]
-    if has("win32")
-        let l:this_project_base_dir = substitute(g:this_project_base_dir, "/", "\\", "g") . "\\"
-    else
-        let l:this_project_base_dir = g:this_project_base_dir
-    endif
-    "let l:lookup_tags_file_string = system(g:project_find_program . " " . l:this_project_base_dir . " " . g:project_find_param)
-    let l:lookup_tags_file_string = system(g:project_find_program . " " . g:project_find_param)
-    let l:lookup_tags_file_list = split(l:lookup_tags_file_string, '\n')
-    let l:lookup_tags_file_list = sort(l:lookup_tags_file_list)
-    let l:item = ""
-    let l:count = 0
-
-    for l:item in l:lookup_tags_file_list
-        let l:item = fnamemodify(l:item, ':t') . "\t" . l:item . "\t" . "1"
-        let l:lookup_tags_file_list[l:count] = l:item
-        let l:count = l:count + 1
-    endfor
-
-    call extend(l:lookup_tags, l:lookup_tags_file_list)
-    call writefile(l:lookup_tags, g:project_lookup_file)
-    "echo "generate lookupfile tag done"
-endfunction
-"dir /B /S /A-D /ON *.fnc *.prc *.trg *.pck *.typ *.spc *.bdy *.tps *.tpb *.txt *.sql &gt; filenametags
-"dir /B /S /A-D /ON | findstr /V ".class$ .xls$ .doc$ .ppt$ .pdf$ .jpg$ .gif$ .zip$ .rar$ .jar$ .dat$ .mdb$ .dmp$ " &gt; filenametags
-cab lookupfile &lt;ESC&gt;:call ProjectTagUpdateLookupFile()&lt;cr&gt;
-let g:project_find_program  = "dir /B /S /A-D /ON"
-let g:project_find_param    = "*.fnc *.prc *.trg *.pck *.typ *.spc *.bdy *.tps *.tpb *.txt *.sql *.c *.h *.py"
-let g:this_project_base_dir = "D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code"
-let g:project_lookup_file   = "D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code/filenametags"
-let g:LookupFile_TagExpr    ='"D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code/filenametags"'
-
-"Í·ÎÄ¼ş´¦ gf´ò¿ª¸ÃÍ·ÎÄ¼ş
+"å¤´æ–‡ä»¶å¤„ gfæ‰“å¼€è¯¥å¤´æ–‡ä»¶
+"æ·»åŠ é¡¹ç›®ä¹‹å‰çš„å¤´æ–‡ä»¶è·¯å¾„ å°±å¯ä½¿ç”¨gfæ‰“å¼€ç›¸å…³å¤´æ–‡ä»¶
+"æ·»åŠ ARMåº“æ–‡ä»¶è·¯å¾„ ä¸å®‰è£…è½¯ä»¶è·¯å¾„æœ‰å…³
+set path+=C:/Keil_v5/ARM/ARMCC/include/**
+"æ·»åŠ é¡¹ç›®æ–‡ä»¶è·¯å¾„ å¦‚ä½•ä¿®æ”¹ä¸ºç›¸å¯¹è·¯å¾„æ›´ä¸ºé€šç”¨???
 set path+=D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code/**
 
-nnoremap &lt;A-=&gt; &lt;ESC&gt;0f{c0&lt;backspace&gt;&lt;ESC&gt;
 
-"filenametags ²»´æÔÚ×Ô¶¯´´½¨
-if filereadable("filenametags")
+" lookupfile
+let g:this_project_base_dir = "."
+let g:project_lookup_file   = "./filenametags"
+let g:LookupFile_TagExpr    ='"./filenametags"'
 
-else
+" filenametags ä¸å­˜åœ¨è‡ªåŠ¨åˆ›å»º
+if filereadable("filenametags") == 0
     execute "call ProjectTagUpdateLookupFile()"
 endif
 
-"cscope.out ´æÔÚ×Ô¶¯Á¬½Ó
+"  cscope.out å­˜åœ¨è‡ªåŠ¨è¿æ¥
 if filereadable("cscope.out")
     execute "cs add cscope.out"
 else
     execute "call Do_CsTag()"
 endif 
-
 </pre>
 
 </body>

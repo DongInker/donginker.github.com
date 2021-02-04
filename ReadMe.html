@@ -3,109 +3,109 @@
 <head>
 <link rel="Stylesheet" type="text/css" href="style.css">
 <title>ReadMe</title>
-<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 
 <p>
-<a href="Vim_Home.html">������һ��</a>
+<a href="Vim_Home.html">返回上一级</a>
 </p>
 
-<div id="Vimʹ��ע������"><h1 id="Vimʹ��ע������" class="header"><a href="#Vimʹ��ע������">Vimʹ��ע������</a></h1></div>
+<div id="Vim使用注意事项"><h1 id="Vim使用注意事项" class="header"><a href="#Vim使用注意事项">Vim使用注意事项</a></h1></div>
 <ul>
 <li>
-�ļ�Ŀ¼������ʹ������
+文件目录不可以使用中文
 
 <li>
-�ļ�Ŀ¼����ʹ�ÿո񣬷���cscope������������
+文件目录不能使用空格，发现cscope不能正常搜索
 
 </ul>
 
-<div id="Vimʹ��ע������-���ļ�ĩβ����^M�Ľ���취"><h2 id="���ļ�ĩβ����^M�Ľ���취" class="header"><a href="#Vimʹ��ע������-���ļ�ĩβ����^M�Ľ���취">���ļ�ĩβ����^M�Ľ���취</a></h2></div>
+<div id="Vim使用注意事项-打开文件末尾带有^M的解决办法"><h2 id="打开文件末尾带有^M的解决办法" class="header"><a href="#Vim使用注意事项-打开文件末尾带有^M的解决办法">打开文件末尾带有^M的解决办法</a></h2></div>
 <p>
-����linux�´�windows�༭�����ļ����ͻ�����ĩβ��ʾ^M;
+而在linux下打开windows编辑过的文件，就会在行末尾显示^M;
 </p>
 <ol>
 <li>
-��windows�µ��ı��ļ���ÿһ�н�β������һ���س�('\n')�ͻ���('\r')
+在windows下的文本文件的每一行结尾，都有一个回车('\n')和换行('\r')
 
 <li>
-��linux�µ��ı��ļ���ÿһ�н�β��ֻ��һ���س�('\n');
+在linux下的文本文件的每一行结尾，只有一个回车('\n');
 
 <li>
-��Mac�µ��ı��ļ���ÿһ�н�β��ֻ��һ������('\r');
+在Mac下的文本文件的每一行结尾，只有一个换行('\r');
 
 </ol>
 
 <ul>
 <li>
 %s/^M$//g              <br/>
-      ���ͣ�% ָƥ�������ļ���s ���û�����˼��^M ע��Ҫ�� Ctrl + V Ctrl + M �����룬<br/>
-      M ����� $ ����ƥ����β�����ݣ����� g ���ʾÿ����ƥ�䵽�����ݶ�Ҫ�û���
+      解释：% 指匹配整个文件，s 是置换的意思，^M 注意要用 Ctrl + V Ctrl + M 来输入，<br/>
+      M 后面的 $ 代表匹配行尾的内容，最后的 g 则表示每行中匹配到的内容都要置换；
 
 </ul>
 
-<div id="Vimʹ��ע������-������尲װ����"><h2 id="������尲װ����" class="header"><a href="#Vimʹ��ע������-������尲װ����">������尲װ����</a></h2></div>
+<div id="Vim使用注意事项-编程字体安装配置"><h2 id="编程字体安装配置" class="header"><a href="#Vim使用注意事项-编程字体安装配置">编程字体安装配置</a></h2></div>
 <blockquote>
-��gvim��������������:set gfw=��Բ:h10.5:cGB2312Ŀǰ��Ч
+在gvim中配置中文字体:set gfw=幼圆:h10.5:cGB2312目前无效
 </blockquote>
 <ol>
 <li>
-���尲װ
+字体安装
 
 <ul>
 <li>
-����ttf�����ʽ�ļ�
+下载ttf字体格式文件
 
 <li>
-��ttf�ļ���ѡ��װ
+打开ttf文件后选择安装
 
 </ul>
 <li>
-��������
+字体配置
 
 <ul>
 <li>
-:set guifont   �鿴��ǰʹ���Լ�
+:set guifont   查看当前使用自己
 
 <li>
-:set guifont=* ��������
+:set guifont=* 配置字体
 
 <li>
-_vimrc���������ʽ set guifont=����:��С:cANSI
+_vimrc设置字体格式 set guifont=字体:大小:cANSI
 
 </ul>
 <li>
-�������
+字体概述
 
 <ol>
 <li>
-<a href="https://github.com/source-foundry/Hack">Hack����</a>
+<a href="https://github.com/source-foundry/Hack">Hack字体</a>
 
 <ul>
 <li>
 set guifont=Hack:h10:cANSI
 
 <li>
-Hack��һ��ר��������ʾ������Ե����壬����Bitstream Vera��DejaVu�Ŀ�Դ����<br/>
-              �̳�Mono��0oO��iLI1�����ɼ����ص㣬����һ���Ż�0������ʽ
+Hack是一种专门用来显示编程语言的字体，基于Bitstream Vera和DejaVu的开源字体<br/>
+              继承Mono中0oO，iLI1清晰可见的特点，并进一步优化0字体样式
 
 </ul>
 <li>
-Mono ����
+Mono 字体
 
 <ul>
 <li>
 set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
 
 <li>
-Mono��һ��ר��������ʾ������Ե����壬��0oO��iLI1�����ɼ����ص�
+Mono是一种专门用来显示编程语言的字体，其0oO，iLI1清晰可见的特点
 
 </ul>
 </ol>
 </ol>
 
-<div id="Vimʹ��ע������-ʹ��Makefile����tags��cscope�����������"><h2 id="ʹ��Makefile����tags��cscope�����������" class="header"><a href="#Vimʹ��ע������-ʹ��Makefile����tags��cscope�����������">ʹ��Makefile����tags��cscope�����������</a></h2></div>
+<div id="Vim使用注意事项-使用Makefile生成tags和cscope看代码更方便"><h2 id="使用Makefile生成tags和cscope看代码更方便" class="header"><a href="#Vim使用注意事项-使用Makefile生成tags和cscope看代码更方便">使用Makefile生成tags和cscope看代码更方便</a></h2></div>
 
 </body>
 </html>
