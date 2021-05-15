@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="../../../style.css">
 <title>VimInstall</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -17,13 +18,13 @@
 </p>
 <ul>
 <li>
-<a href="VimInstall.html#安装环境">安装环境</a>
+<a href="VimInstall.html#Win10快速搭建编写平台">#Win10快速搭建编写平台</a>
 
 <li>
 <a href="VimInstall.html#安装步骤">安装步骤</a>
 
 <li>
-<a href="VimInstall.html#使用vundle管理Vim插件">使用vundle管理Vim插件</a>
+<a href="VimInstall.html#vundle">使用vundle管理Vim插件</a>
 
 <ul>
 <li>
@@ -45,29 +46,61 @@
 <a href="VimInstall.html#使用vundle管理Vim插件-lookupfile">lookupfile</a>
 
 <li>
+<a href="VimInstall.html#indectLine">#indectLine</a>
+
+<li>
 <a href="VimInstall.html#使用vundle管理Vim插件-other">other</a>
 
 </ul>
 </ul>
 
-<div id="目录-安装环境"><h2 id="安装环境" class="header"><a href="#目录-安装环境">安装环境</a></h2></div>
+<div id="目录-Win10快速搭建编写平台"><h2 id="Win10快速搭建编写平台" class="header"><a href="#目录-Win10快速搭建编写平台">Win10快速搭建编写平台</a></h2></div>
 <p>
 <a href="VimInstall.html#目录">返回目录</a>
 </p>
+    
 <ul>
 <li>
-Git 
+环境win10 用户名Cindy
 
 <li>
-win10
+
+
+<li>
+<a href="https://github.com/DongInker/vimfiles.git">克隆vimfiles到电脑用户目录</a>
+
+<li>
+对vimfiles解压复制到电脑用户目录C:\Users\Cindy\
+
+<li>
+
+
+<li>
+双击C:\Users\Cindy\vimfiles\_DIY\gvim82.exe安装vim
+
+<li>
+双击C:\Users\Cindy\vimfiles\_DIY\Hack-Regular.ttf VeraMono.ttf安装字体
+
+<li>
+  将C:\Users\Cindy\vimfiles\_DIY\_vimrc文件复制替换C:\Program Files (x86)\Vim\_vimrc文件
+
+<li>
+  将C:\Users\Cindy\vimfiles\_DIY\ctasg.exe cscope.exe文件复制替换C:\Program Files (x86)\Vim\vim82下
 
 </ul>
+
 
 <div id="目录-安装步骤"><h2 id="安装步骤" class="header"><a href="#目录-安装步骤">安装步骤</a></h2></div>
 <p>
 <a href="VimInstall.html#目录">返回目录</a>
 </p>
 <ul>
+<li>
+环境 Win10 安装Git
+
+<li>
+
+
 <li>
 下载vim82并安装
 
@@ -114,14 +147,61 @@ win10
 
 </ul>
 
-<div id="目录-使用vundle管理Vim插件"><h2 id="使用vundle管理Vim插件" class="header"><a href="#目录-使用vundle管理Vim插件">使用vundle管理Vim插件</a></h2></div>
+<div id="目录-vundle"><h2 id="vundle" class="header"><a href="#目录-vundle">vundle</a></h2></div>
 <p>
 <a href="VimInstall.html#目录">返回目录</a>
 </p>
+<ul>
+<li>
+用vundle管理Vim插件
 
-<div id="目录-使用vundle管理Vim插件-vimwiki"><h3 id="vimwiki" class="header"><a href="#目录-使用vundle管理Vim插件-vimwiki">vimwiki</a></h3></div>
+<li>
+<a href="VimInstall.html#vimwiki">vimwiki</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-自动补全 ( { [ &quot; '">自动补全 ( { [ " '</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-切换 .c 与 .h文件">切换 .c 与 .h文件</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-顶部标签栏">顶部标签栏</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-winmannger.vim">winmannger.vim</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-lookupfile">lookupfile</a>
+
+<li>
+<a href="VimInstall.html#indectLine">#indectLine</a>
+
+<li>
+<a href="VimInstall.html#使用vundle管理Vim插件-other">other</a>
+
+</ul>
+
+<ul>
+<li>
+Vundle操作命令
+
+<li>
+PluginInstall
+
+<li>
+PluginClean
+
+<li>
+PluginUpdate
+
+<li>
+PluginList
+
+</ul>
+
+<div id="目录-vundle-vimwiki"><h3 id="vimwiki" class="header"><a href="#目录-vundle-vimwiki">vimwiki</a></h3></div>
 <p>
-<a href="VimInstall.html#目录">返回目录</a>
+<a href="VimInstall.html#vundle">返回</a>
 </p>
 <ul>
 <li>
@@ -167,9 +247,9 @@ endif
 
 </ul>
 
-<div id="目录-使用vundle管理Vim插件-自动补全 ( { [ &quot; '"><h3 id="自动补全 ( { [ &quot; '" class="header"><a href="#目录-使用vundle管理Vim插件-自动补全 ( { [ &quot; '">自动补全 ( { [ " '</a></h3></div>
+<div id="目录-vundle-自动补全 ( { [ &quot; '"><h3 id="自动补全 ( { [ &quot; '" class="header"><a href="#目录-vundle-自动补全 ( { [ &quot; '">自动补全 ( { [ " '</a></h3></div>
 <p>
-<a href="VimInstall.html#目录">返回目录</a>
+<a href="VimInstall.html#vundle">返回</a>
 </p>
 <ul>
 <li>
@@ -182,7 +262,7 @@ _vimrc Vundle 代码
 开关自动补全代码快捷冲突 所以将alt+p改为alt+u
 
 <li>
-可视模式下,给选择字符添加()
+可视模式下,给选择字符添加()  (再添加" ' 更实用)
 <pre>
 
 "------------------------------------------------
@@ -226,13 +306,13 @@ endif
 
 </ul>
 
-<div id="目录-使用vundle管理Vim插件-切换 .c 与 .h文件"><h3 id="切换 .c 与 .h文件" class="header"><a href="#目录-使用vundle管理Vim插件-切换 .c 与 .h文件">切换 .c 与 .h文件</a></h3></div>
+<div id="目录-vundle-切换 .c 与 .h文件"><h3 id="切换 .c 与 .h文件" class="header"><a href="#目录-vundle-切换 .c 与 .h文件">切换 .c 与 .h文件</a></h3></div>
 <p>
-<a href="VimInstall.html#目录">返回目录</a>
+<a href="VimInstall.html#vundle">返回</a>
 </p>
 <ul>
 <li>
-F9 切换 .c 与 .h文件
+F9 :AV 切换 .c 与 .h文件
 
 <li>
 _vimrc Vundle 代码
@@ -251,13 +331,13 @@ let g:alternateSearchPath = 'sfr:./,sfr:../include,sfr:http://www.cnblogs.com/in
 
 </ul>
 
-<div id="目录-使用vundle管理Vim插件-顶部标签栏"><h3 id="顶部标签栏" class="header"><a href="#目录-使用vundle管理Vim插件-顶部标签栏">顶部标签栏</a></h3></div>
+<div id="目录-vundle-顶部标签栏"><h3 id="顶部标签栏" class="header"><a href="#目录-vundle-顶部标签栏">顶部标签栏</a></h3></div>
 <p>
-<a href="VimInstall.html#目录">返回目录</a>
+<a href="VimInstall.html#vundle">返回</a>
 </p>
 <ul>
 <li>
-顶部标签栏
+顶部标签栏(经常会出现多个标签窗口 严重影响体验 占不使用)
 
 <li>
 _vimrc Vundle 代码
@@ -281,9 +361,9 @@ endif
 
 </ul>
 
-<div id="目录-使用vundle管理Vim插件-winmannger.vim"><h3 id="winmannger.vim" class="header"><a href="#目录-使用vundle管理Vim插件-winmannger.vim">winmannger.vim</a></h3></div>
+<div id="目录-vundle-winmannger.vim"><h3 id="winmannger.vim" class="header"><a href="#目录-vundle-winmannger.vim">winmannger.vim</a></h3></div>
 <p>
-<a href="VimInstall.html#目录">返回目录</a>
+<a href="VimInstall.html#vundle">返回</a>
 </p>
 <ul>
 <li>
@@ -307,9 +387,9 @@ nmap wm :WMToggle&lt;cr&gt;
 
 </ul>
 
-<div id="目录-使用vundle管理Vim插件-lookupfile"><h3 id="lookupfile" class="header"><a href="#目录-使用vundle管理Vim插件-lookupfile">lookupfile</a></h3></div>
+<div id="目录-vundle-lookupfile"><h3 id="lookupfile" class="header"><a href="#目录-vundle-lookupfile">lookupfile</a></h3></div>
 <p>
-<a href="VimInstall.html#目录">返回目录</a>
+<a href="VimInstall.html#vundle">返回</a>
 </p>
 <ul>
 <li>
@@ -384,9 +464,38 @@ cab lookupfile &lt;ESC&gt;:call ProjectTagUpdateLookupFile()&lt;cr&gt;
 
 </ul>
 
-<div id="目录-使用vundle管理Vim插件-other"><h3 id="other" class="header"><a href="#目录-使用vundle管理Vim插件-other">other</a></h3></div>
+<div id="目录-vundle-indectLine"><h3 id="indectLine" class="header"><a href="#目录-vundle-indectLine">indectLine</a></h3></div>
 <p>
-<a href="VimInstall.html#目录">返回目录</a>
+<a href="VimInstall.html#vundle">返回</a>
+</p>
+<ul>
+<li>
+代码对齐竖线
+
+<li>
+:line 开关对齐线
+
+<li>
+开启会导致wiki无法展开连接信息
+
+<li>
+_vimrc Vundle 代码
+<pre>
+"------------------------------------------------
+"indentline
+"""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'Yggdroot/indentLine'
+"let g:indentLine_char='┆'
+let g:indentLine_enabled = 0
+cab &lt;unique&gt; line :IndentLinesToggle&lt;cr&gt;
+
+</pre>
+
+</ul>
+
+<div id="目录-vundle-other"><h3 id="other" class="header"><a href="#目录-vundle-other">other</a></h3></div>
+<p>
+<a href="VimInstall.html#vundle">返回</a>
 </p>
 <ul>
 <li>
@@ -395,8 +504,8 @@ _vimrc Vundle 代码
 "------------------------------------------------
 "
 """""""""""""""""""""""""""""""""""""""""""""""""
-Plugin 'grep.vim'
-Plugin 'Mark'
+"Plugin 'grep.vim'
+"Plugin 'Mark'
 "Plugin 'visualmark'
 
 </pre>

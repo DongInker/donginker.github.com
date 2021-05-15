@@ -4,6 +4,7 @@
 <link rel="Stylesheet" type="text/css" href="style.css">
 <title>VimUserKey</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -15,11 +16,15 @@
 <p>
 <a href="VimUserKey.html#目录">返回目录</a>
 </p>
-<pre>
-</pre>
 <ul>
 <li>
+<a href="VimUserKey.html#使用步骤">#使用步骤</a>
+
+<li>
 <a href="VimUserKey.html#移动操作">#移动操作</a>
+
+<li>
+<a href="VimUserKey.html#排序sort">#排序sort</a>
 
 <li>
 <a href="VimUserKey.html#替换字符">#替换字符</a>
@@ -70,6 +75,12 @@
 <a href="VimUserKey.html#mapleader">#mapleader</a>
 
 <li>
+<a href="VimUserKey.html#Alt">#Alt</a>
+
+<li>
+<a href="VimUserKey.html#Ctrl">#Ctrl</a>
+
+<li>
 <a href="VimUserKey.html#iab">#iab</a>
 
 <li>
@@ -79,6 +90,56 @@
 <a href="VimUserKey.html#MyUserCmd">#MyUserCmd</a>
 
 </ul>
+
+<div id="目录-使用步骤"><h2 id="使用步骤" class="header"><a href="#目录-使用步骤">使用步骤</a></h2></div>
+<p>
+<a href="VimUserKey.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+在代码根目录新建 Prj.vim 文件
+
+<li>
+打开Prj.vim文件,并复制下面<img src="{" />}中的代码到Prj.vim中
+
+<li>
+实际项目路径D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code替换
+
+<li>
+使用:path\/命令将目录\改为/
+
+<li>
+保存Prj.vim并关闭重新打开
+
+</ul>
+
+<pre>
+"头文件处 gf打开该头文件
+"添加项目之前的头文件路径 就可使用gf打开相关头文件
+"添加ARM库文件路径 与安装软件路径有关
+set path+=C:/Keil_v5/ARM/ARMCC/include/**
+"添加项目文件路径 如何修改为相对路径更为通用???
+set path+=D:/Inker/Work/Model/S32F3wc/trunk/SW_S32F3_MAIN/code/**
+
+
+" lookupfile
+let g:this_project_base_dir = "."
+let g:project_lookup_file   = "./filenametags"
+let g:LookupFile_TagExpr    ='"./filenametags"'
+
+" filenametags 不存在自动创建
+if filereadable("filenametags") == 0
+    execute "call ProjectTagUpdateLookupFile()"
+endif
+
+"  cscope.out 存在自动连接
+if filereadable("cscope.out")
+    execute "cs add cscope.out"
+else
+    execute "call Do_CsTag()"
+endif 
+</pre>
+
 
 <div id="目录-移动操作"><h2 id="移动操作" class="header"><a href="#目录-移动操作">移动操作</a></h2></div>
 <p>
@@ -383,6 +444,238 @@ nG
 </table>
 </p>
 
+<div id="目录-排序sort"><h2 id="排序sort" class="header"><a href="#目录-排序sort">排序sort</a></h2></div>
+<p>
+<a href="VimUserKey.html#目录">返回目录</a>
+</p>
+
+<table>
+<tr>
+<th>
+original
+</th>
+<th>
+:sort
+</th>
+<th>
+:sort n
+</th>
+<th>
+:sort!n
+</th>
+</tr>
+<tr>
+<td>
+999
+</td>
+<td>
+1
+</td>
+<td>
+1
+</td>
+<td>
+999
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+10
+</td>
+<td>
+2
+</td>
+<td>
+101
+</td>
+</tr>
+<tr>
+<td>
+50
+</td>
+<td>
+100
+</td>
+<td>
+3
+</td>
+<td>
+100
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+101
+</td>
+<td>
+7
+</td>
+<td>
+50
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+11
+</td>
+<td>
+9
+</td>
+<td>
+30
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+18
+</td>
+<td>
+10
+</td>
+<td>
+23
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+19
+</td>
+<td>
+11
+</td>
+<td>
+19
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+2
+</td>
+<td>
+18
+</td>
+<td>
+18
+</td>
+</tr>
+<tr>
+<td>
+11
+</td>
+<td>
+23
+</td>
+<td>
+19
+</td>
+<td>
+11
+</td>
+</tr>
+<tr>
+<td>
+23
+</td>
+<td>
+3
+</td>
+<td>
+23
+</td>
+<td>
+10
+</td>
+</tr>
+<tr>
+<td>
+30
+</td>
+<td>
+30
+</td>
+<td>
+30
+</td>
+<td>
+9
+</td>
+</tr>
+<tr>
+<td>
+18
+</td>
+<td>
+50
+</td>
+<td>
+50
+</td>
+<td>
+7
+</td>
+</tr>
+<tr>
+<td>
+19
+</td>
+<td>
+7
+</td>
+<td>
+100
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<td>
+100
+</td>
+<td>
+9
+</td>
+<td>
+101
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+101
+</td>
+<td>
+999
+</td>
+<td>
+999
+</td>
+<td>
+1
+</td>
+</tr>
+</table>
+
 <div id="目录-替换字符"><h2 id="替换字符" class="header"><a href="#目录-替换字符">替换字符</a></h2></div>
 <p>
 <a href="VimUserKey.html#目录">返回目录</a>
@@ -644,8 +937,9 @@ Ctrl+r   恢复
 |         |    F6    |           | 开/关QuickFix窗口        |
 |         |    F7    |           | QuickFix 前一项          |
 |         |    F8    |           | QuickFix 后一项          |
-|         |    F9    |           | 切换.h与.c文件           |
+|         |    F9    |  :AV      | 切换.h与.c文件           |
 |         |  C-F12   |           | 更新csope tags库         |
+|         |   :vs ./ |           | 打开文件树窗口 同wm      |
 |         |   wm     |           | 开/关 Tag_List窗口       |
 |         |   wv     | &lt;C-w&gt;v    | 垂直分割窗口             |
 |         |   ws     | &lt;C-w&gt;s    | 水平分割窗口             |
@@ -660,9 +954,8 @@ Ctrl+r   恢复
 |         |   wb     |           | 调整当前窗口100列        |
 | n       | &lt;C-h&gt;    |           | 调整当前窗口变大         |
 | n       | &lt;C-l&gt;    |           | 调整当前窗口变小         |
-| n v     | &lt;C-j&gt;    | &lt;C-f&gt;     | 下一页代码               |
-| n v     | &lt;C-k&gt;    | &lt;C-b&gt;     | 上一页代码               |
 | n v     | tab      | %         | tab替换 %                |
+| n       | Alt + m  | %         | tab替换 %                |
 |---------+----------|-----------|--------------------------+
 </pre>
 
@@ -691,6 +984,243 @@ mapleader (,)
 +----------|----------------------|--------------------------+
 </pre>
 
+<div id="目录-Alt"><h2 id="Alt" class="header"><a href="#目录-Alt">Alt</a></h2></div>
+<p>
+<a href="VimUserKey.html#目录">返回目录</a>
+<table>
+<tr>
+<th>
+mode nvi:
+</th>
+<th>
+New key
+</th>
+<th>
+Old key
+</th>
+<th>
+Cmd
+</th>
+</tr>
+<tr>
+<td>
+n
+</td>
+<td>
+&lt;A-y&gt;
+</td>
+<td>
+yiw
+</td>
+<td>
+复制当前光标单词
+</td>
+</tr>
+<tr>
+<td>
+n
+</td>
+<td>
+&lt;A-p&gt;
+</td>
+<td>
+vim"0p
+</td>
+<td>
+替换当前光标单词
+</td>
+</tr>
+<tr>
+<td>
+:
+</td>
+<td>
+&lt;A-h&gt;
+</td>
+<td>
+Left
+</td>
+<td>
+命令模式光标左移
+</td>
+</tr>
+<tr>
+<td>
+:
+</td>
+<td>
+&lt;A-l&gt;
+</td>
+<td>
+Righ
+</td>
+<td>
+命令模式光标右移
+</td>
+</tr>
+<tr>
+<td>
+:
+</td>
+<td>
+&lt;A-j&gt;
+</td>
+<td>
+Down
+</td>
+<td>
+命令模式下一条历史
+</td>
+</tr>
+<tr>
+<td>
+:
+</td>
+<td>
+&lt;A-k&gt;
+</td>
+<td>
+UP
+</td>
+<td>
+命令模式上一条历史
+</td>
+</tr>
+<tr>
+<td>
+nvi
+</td>
+<td>
+&lt;A-j&gt;
+</td>
+<td>
+&lt;ESC&gt;:w!&lt;cr&gt;
+</td>
+<td>
+编辑模式退出并保存修改
+</td>
+</tr>
+<tr>
+<td>
+n
+</td>
+<td>
+&lt;A-=&gt;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+将{改到上一行尾部
+</td>
+</tr>
+<tr>
+<td>
+n
+</td>
+<td>
+&lt;A-u&gt;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+开关{("'字符自动配对
+</td>
+</tr>
+<tr>
+<td>
+n
+</td>
+<td>
+&lt;A-m&gt;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+开关自动换行
+</td>
+</tr>
+</table>
+</p>
+
+<div id="目录-Ctrl"><h2 id="Ctrl" class="header"><a href="#目录-Ctrl">Ctrl</a></h2></div>
+<p>
+<a href="VimUserKey.html#目录">返回目录</a>
+<table>
+<tr>
+<th>
+mode nvi:
+</th>
+<th>
+New key
+</th>
+<th>
+Old key
+</th>
+<th>
+Cmd
+</th>
+</tr>
+<tr>
+<td>
+n
+</td>
+<td>
+&lt;C-h&gt;
+</td>
+<td>
+:ver res+1
+</td>
+<td>
+调节窗口大小
+</td>
+</tr>
+<tr>
+<td>
+n
+</td>
+<td>
+&lt;C-l&gt;
+</td>
+<td>
+:ver res-1
+</td>
+<td>
+调节窗口大小
+</td>
+</tr>
+<tr>
+<td>
+nv
+</td>
+<td>
+&lt;C-f&gt;
+</td>
+<td>
+&lt;C-f&gt;
+</td>
+<td>
+下一页
+</td>
+</tr>
+<tr>
+<td>
+nv
+</td>
+<td>
+&lt;C-b&gt;
+</td>
+<td>
+&lt;C-b&gt;
+</td>
+<td>
+上一页
+</td>
+</tr>
+</table>
+</p>
 
 <div id="iab"><h1 id="iab" class="header"><a href="#iab">iab</a></h1></div>
 <p>
@@ -719,17 +1249,23 @@ mapleader (,)
 </p>
 <pre>
 * vimrc
-+-------------|----------------------+
-|    缩写     |    完整              |
-+-------------|----------------------+
-| path/\      | s/\//\\/g            |
-| path\/      | s/\\/\//g            |
-| lookupfile  |filenametags          |
-| ecfg        |:ed $VIM/_vimrc&lt;cr&gt;   | 编辑配置文件
-| scfg        |:so $VIM/_vimrc&lt;cr&gt;   | 载入配置文件
-| bin         |:%!xxd -g 1           | 二进制显示文件
-| char        |:%!xxd -r             | 字符显示文件
-+-------------|----------------------+
++-------------|--------------------------------+
+|    缩写     |    完整                        |
++-------------|--------------------------------+
+| path/\      | s/\//\\/g                      |
+| path\/      | s/\\/\//g                      |
+| lookupfile  |filenametags                    |
+| ecfg        |:ed $VIM/_vimrc&lt;cr&gt;             | 编辑配置文件
+| scfg        |:so $VIM/_vimrc&lt;cr&gt;             | 载入配置文件
+| bin         |:%!xxd -g 1                     | 二进制显示文件
+| char        |:%!xxd -r                       | 字符显示文件
+| vs ./       |:vs ./                          | 打开文件树窗口
+| utf8        |:set fileencoding=utf-8         | 将文件编码格式转为utf-8
+| cp9         |:set fileencoding=cp936         | 将文件编码格式转为cp936
+| line        |:IndentLinesToggle              | 开关代码辅助竖线
+| sort        |升序排序                        |
+| sor!        |反序排序                        |
++-------------|--------------------------------+
 
 *Prj.vim
 +-------------|-------------+
