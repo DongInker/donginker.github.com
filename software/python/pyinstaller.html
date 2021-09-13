@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>pyinstaller</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<p>
+<a href="index.html">返回上一级</a>
+</p>
+
+<div id="打包脚本"><h3 id="打包脚本" class="header"><a href="#打包脚本">打包脚本</a></h3></div>
+<ul>
+<li>
+进入要打包脚本目录
+
+<li>
+按shift右击运行命令行
+
+<li>
+输入只生成一个exe文件命令 pyinstaller -F xxx.py
+
+<li>
+在dist目录下生成xxx.exe文件
+
+</ul>
+
+
+<div id="问题"><h1 id="问题" class="header"><a href="#问题">问题</a></h1></div>
+<div id="问题-PYTHON3.8引用WIN32API，DEBUG正常，打包后运行报错"><h2 id="PYTHON3.8引用WIN32API，DEBUG正常，打包后运行报错" class="header"><a href="#问题-PYTHON3.8引用WIN32API，DEBUG正常，打包后运行报错">PYTHON3.8引用WIN32API，DEBUG正常，打包后运行报错</a></h2></div>
+<pre>
+升级到python3.8打包问题
+打包提示
+WARNING: lib not found: pywintypes38.dll dependency of 
+
+解决方式：添加一个模块
+import pywintypes
+
+如果使用 Com 那么必须添加 import pythoncom
+</pre>
+
+
+
+<div id="问题-打包Config.py为什么会失败"><h2 id="打包Config.py为什么会失败" class="header"><a href="#问题-打包Config.py为什么会失败">打包Config.py为什么会失败</a></h2></div>
+
+</body>
+</html>

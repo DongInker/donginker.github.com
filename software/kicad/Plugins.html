@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>Plugins</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<p>
+<a href="index.html">返回上一级</a>
+</p>
+
+<div id="目录"><h2 id="目录" class="header"><a href="#目录">目录</a></h2></div>
+<p>
+<a href="Plugins.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="Plugins.html#脚本安装说明">#脚本安装说明</a>
+
+<li>
+<a href="Plugins.html#泪滴脚本">#泪滴脚本</a>
+
+<li>
+<a href="Plugins.html#bom插件">#bom插件</a>
+
+<li>
+<a href="Plugins.html#二维码插件">#二维码插件</a>
+
+</ul>
+
+<div id="目录-脚本安装说明"><h3 id="脚本安装说明" class="header"><a href="#目录-脚本安装说明">脚本安装说明</a></h3></div>
+<p>
+<a href="Plugins.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+平台：
+
+<ul>
+<li>
+win10 
+
+<li>
+KICAD(5.1.5)-3
+
+</ul>
+</ul>
+
+<ol>
+<li>
+KICAD脚本存放目录<br/>
+      C:\Users\Develop_01\AppData\Roaming\kicad\scripting\plugins<br/>
+      目录不存在,则创建目录
+
+<li>
+将相应脚本文件复制到目录下
+
+</ol>
+
+<div id="目录-泪滴脚本"><h3 id="泪滴脚本" class="header"><a href="#目录-泪滴脚本">泪滴脚本</a></h3></div>
+<p>
+<a href="Plugins.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="https://github.com/NilujePerchut/kicad_scripts">Git下载插件</a>
+
+<li>
+将下载的文件kicad_scripts/teardrops复制到脚本存放目录 
+
+<li>
+重新启动KICAD软件，进入PCB 工具》外部插件》Teardrops
+
+<li>
+功能
+
+<ul>
+<li>
+添加泪滴 删除泪滴
+
+<li>
+设置泪滴尺寸
+
+<li>
+表贴器件是否泪滴
+
+</ul>
+<li>
+2021-01-15 14:15:01
+
+<ul>
+<li>
+修改插件对话框大小,所以参数都可以显示
+
+<li>
+teardrops/teardrop_gui.py
+
+<li>
+size = wx.Size( 410,291 ) 改为 size = wx.Size( 410,350 )
+
+<li>
+启动KICAD工程软件
+
+</ul>
+</ul>
+
+
+<div id="bom插件"><h2 id="bom插件" class="header"><a href="#bom插件">bom插件</a></h2></div>
+<p>
+<a href="Plugins.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="ttps:\\github.com\openscopeproject\InteractiveHtmlBom.html">Git下载插件</a>
+
+<li>
+将下载的文件InteractiveHtmlBom复制到脚本存放目录 
+
+<li>
+重新启动KICAD软件，进入PCB 工具》外部插件》Generate Interactive HTML BOM
+
+<li>
+网页另存为html文件，可以发送给需要的焊接调试人员
+
+<li>
+<a href="DemoKicadBOM.html">演示效果</a>
+
+</ul>
+
+<ul>
+<li>
+打印BOM表：关闭图片只显示器件清单，右击打印
+
+</ul>
+
+<div id="二维码插件"><h2 id="二维码插件" class="header"><a href="#二维码插件">二维码插件</a></h2></div>
+<p>
+<a href="Plugins.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="https://pan.baidu.com/s/1HewD1U6JnxaZ7hcGm9DkfQ">百度云 提取码154w</a>
+
+<li>
+将下载的文件qrcode复制到脚本存放目录 
+
+<li>
+将qrcode文件夹QrcodeToKICAD.exe拷贝到二维码生成库目录
+
+<ul>
+<li>
+如:C:\CloudStation\library\KiCad\modules\1Qrcode.pretty
+
+<li>
+修改qrcode_plugin.py文件os.chdir(r'C:\CloudStation\library\KiCad\modules\1Qrcode.pretty')
+
+</ul>
+<li>
+重新启动KICAD软件，进入PCB 工具》外部插件》Qrcode
+
+<ul>
+<li>
+系统会调用C:\CloudStation\library\KiCad\modules\1Qrcode.pretty\QrcodeToKICAD.exe
+
+<ul>
+<li>
+输入封装名称
+
+<li>
+输入二维码内容
+
+<li>
+输入生成尺寸
+
+<li>
+生成二维码封装文件到C:\CloudStation\library\KiCad\modules\1Qrcode.pretty 并展示二维码
+
+<li>
+重新进入封装库1Qrcode可以查看刚生成二维码封装
+
+</ul>
+</ul>
+<li>
+其中_<em>init</em>_.py qrcode_plugin.py为注册KICAD插件代码
+
+</ul>
+
+</body>
+</html>

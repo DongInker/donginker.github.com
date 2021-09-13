@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>PuHuaKiCad</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+</head>
+<body>
+
+<p>
+<a href="KICAD_Home.html">返回上一级</a>
+</p>
+
+<ul>
+<li>
+使用Git管理
+
+<li>
+KiCad使用同步共享文件方案
+
+<ul>
+<li>
+安装软件地址：\\192.168.8.13\software\synology
+
+<li>
+IP:192.168.8.13
+
+<li>
+用户名：develop
+
+<li>
+密码：  puhuadev
+
+<li>
+将目录定位到C:\PuHua
+
+</ul>
+<li>
+KiCad修改库指向路径
+
+<ul>
+<li>
+首选项》配置路径
+
+<ul>
+<li>
+添加原理图符号库--名称SCH 路径C:\PuHua\CloudStation\library\KiCad\library
+
+<li>
+添加封装符号库----名称PCB 路径C:\PuHua\CloudStation\library\KiCad\modules
+
+</ul>
+<li>
+管理符号库 
+
+<ul>
+<li>
+删除系统全局库
+
+<li>
+添加C:\PuHua\CloudStation\library\KiCad\library目录下全部文件
+
+</ul>
+<li>
+管理封装库 
+
+<ul>
+<li>
+删除系统全局库
+
+<li>
+添加C:\PuHua\CloudStation\library\KiCad\modules目录下全部文件
+
+</ul>
+</ul>
+</ul>
+
+<div id="封装修改"><h1 id="封装修改" class="header"><a href="#封装修改">封装修改</a></h1></div>
+<div id="封装修改-修改项"><h2 id="修改项" class="header"><a href="#封装修改-修改项">修改项</a></h2></div>
+<ul>
+<li>
+贴片电容使用弧形 贴片电阻使用矩形
+
+<li>
+多脚芯片添加管脚刻度
+
+<li>
+丝印圆圈标记第一管脚 注意焊盘阻焊轮廓
+
+<li>
+丝印圆圈标记第一管脚 标记在焊盘阻焊轮廓之外
+
+<li>
+管脚焊盘由方形改为圆角
+
+<ol>
+<li>
+修改第一个焊盘类型：圆角矩形 圆角尺寸：25%
+
+<li>
+复制第一个焊盘属性 右击》焊盘》复制焊盘属性
+
+<li>
+选择其他未改焊盘后 右击》焊盘》粘体焊盘属性
+
+</ol>
+<li>
+调整装配层值与参考字符串中心位置及方向
+
+</ul>
+
+<div id="封装修改-修改添加封装与符号签名"><h2 id="修改添加封装与符号签名" class="header"><a href="#封装修改-修改添加封装与符号签名">修改添加封装与符号签名</a></h2></div>
+<ul>
+<li>
+意义:方便封装时优先使用已修改的封装库
+
+<li>
+格式：逗号(,) + 公司(PuHua) + 名字拼音首字母 eg:PuHuaDmw
+
+<li>
+属性 》 描述 
+
+<li>
+<img src="Image/修改添加封装签名.jpg" alt="修改添加封装签名" />
+
+</ul>
+
+<div id="封装修改-封装锚点置中心"><h2 id="封装锚点置中心" class="header"><a href="#封装修改-封装锚点置中心">封装锚点置中心</a></h2></div>
+<ul>
+<li>
+提供贴片机生产坐标参考使用
+
+<li>
+布局PCB调整时，旋转时坐标不影响
+
+</ul>
+
+<p>
+== 装配层 参考与值字符放置 =
+</p>
+<ul>
+<li>
+装配层参考与值能放中心尽可能放中心重叠 调整方向
+
+</ul>
+
+<div id="封装修改-PCB元件直接进入修改封装库"><h2 id="PCB元件直接进入修改封装库" class="header"><a href="#封装修改-PCB元件直接进入修改封装库">PCB元件直接进入修改封装库</a></h2></div>
+<ul>
+<li>
+参考编号改为REF** 进行保存
+
+<li>
+改为封装名 
+
+<ul>
+<li>
+其中值可以从 文件》另存为 窗口获得封装名 复制修改
+
+</ul>
+</ul>
+
+<div id="添加封装"><h1 id="添加封装" class="header"><a href="#添加封装">添加封装</a></h1></div>
+<ul>
+<li>
+参考规则
+
+<ul>
+<li>
+封装命名尽量符号库命名规则
+
+<li>
+设置封装锚点在中心
+
+<li>
+焊盘类型：圆角矩形 圆角尺寸：25%
+
+<li>
+贴片电容使用弧形 贴片电阻使用矩形
+
+<li>
+多脚芯片添加管脚刻度
+
+<li>
+丝印圆圈标记第一管脚 标记在焊盘阻焊轮廓之外
+
+<li>
+丝印轮廓画器件壳轮廓，及芯片半圆图形
+
+<li>
+调整装配层值与参考字符串中心位置及方向
+
+</ul>
+</ul>
+
+<ul>
+<li>
+线与字符尺寸
+
+<ul>
+<li>
+F.Fab --&gt; REF** 文本:%R(代表与丝印编号同步) 导入PCB才能变为元器件编号   
+<table>
+<tr>
+<th>
+&nbsp;
+</th>
+<th>
+&nbsp;
+</th>
+<th>
+文本宽x高
+</th>
+<th>
+线宽
+</th>
+<th>
+布板对齐 检查器件重叠
+</th>
+</tr>
+<tr>
+<th>
+F.Cu
+</th>
+<th>
+顶层铜层
+</th>
+<th rowspan="3">
+&nbsp;
+</th>
+<th rowspan="3">
+&nbsp;
+</th>
+<th>
+管脚焊盘焊接面
+</th>
+</tr>
+<tr>
+<th>
+F.Paste
+</th>
+<th>
+顶层锡膏
+</th>
+<th>
+管脚焊盘焊接面
+</th>
+</tr>
+<tr>
+<th>
+F.Mask
+</th>
+<th>
+顶层阻焊
+</th>
+<th>
+锡膏外扩0.2mm
+</th>
+</tr>
+<tr>
+<th rowspan="2">
+F.Silks
+</th>
+<th rowspan="2">
+顶层丝印层
+</th>
+<th>
+1.0x1.0mm
+</th>
+<th>
+W0.15mm
+</th>
+<th>
+REF**    放置上面 (自动生成)
+</th>
+</tr>
+<tr>
+<th>
+&nbsp;
+</th>
+<th>
+W0.12mm
+</th>
+<th>
+图形 1脚 管脚刻度 轮廓
+</th>
+</tr>
+<tr>
+<th>
+F.CrtYd
+</th>
+<th>
+顶层外框尺寸
+</th>
+<th>
+&nbsp;
+</th>
+<th>
+W0.05mm
+</th>
+<th>
+布板对齐 检查器件重叠
+</th>
+</tr>
+<tr>
+<th rowspan="3">
+F.Fab
+</th>
+<th rowspan="3">
+装配层
+</th>
+<th>
+1.0x1.0mm
+</th>
+<th>
+W0.15mm
+</th>
+<th>
+REF** 器件编号 文本:%R 放置中心
+</th>
+</tr>
+<tr>
+<th>
+&nbsp;
+</th>
+<th>
+W0.10mm
+</th>
+<th>
+图形  指示1脚  轮廓
+</th>
+</tr>
+<tr>
+<th>
+1.0x1.0mm
+</th>
+<th>
+W0.15mm
+</th>
+<th>
+封装名 放置中心     (自动生成)
+</th>
+</tr>
+</table>
+
+</ul>
+</ul>
+
+
+<ul>
+<li>
+线与字符间距
+<pre>
+   锡膏   |    阻焊      |     丝印   |   外框   |
+---------&gt;|&lt;---0.20mm---&gt;|&lt;--0.15mm--&gt;|&lt;-0.05mm-&gt;|
+          |--------------------&gt;0.275mm
+          |--------------------------------&gt;0.375mm
+</pre>
+
+</ul>
+
+<ul>
+<li>
+  指定器件规定
+
+<ul>
+<li>
+极性电容 焊盘编号1为正标记 焊盘编号2为负
+
+<li>
+二极管   焊盘编号1为负标记 焊盘编号2为正
+
+<li>
+三级管   焊盘编号1为c 焊盘编号2为b 焊盘编号3为e
+
+</ul>
+</ul>
+        
+<ul>
+<li>
+3D模型导入：封装属性》3D模型
+
+</ul>
+
+</body>
+</html>

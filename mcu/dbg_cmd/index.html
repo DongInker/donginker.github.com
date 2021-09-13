@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<p>
+<a href="..\index.html">返回上一级</a>
+</p>
+
+<div id="目录"><h1 id="目录" class="header"><a href="#目录">目录</a></h1></div>
+<p>
+<a href="index.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="index.html#源代码">#源代码</a>
+
+<li>
+<a href="index.html#配置命令行">#配置命令行</a>
+
+<li>
+<a href="index.html#注册命令行">#注册命令行</a>
+
+<li>
+<a href="index.html#命令规则">#命令规则</a>
+
+<li>
+<a href="index.html#命令使用">#命令使用</a>
+
+<li>
+<a href="index.html#改进项">#改进项</a>
+
+</ul>
+
+<div id="目录-源代码"><h2 id="源代码" class="header"><a href="#目录-源代码">源代码</a></h2></div>
+<p>
+<a href="index.html#目录">返回目录</a>
+</p>
+
+<ol>
+<li>
+<a href="data/dbg_cmd.h">dbg_cmd.h</a>
+
+<li>
+<a href="data/dbg_cmd.c">dbg_cmd.c</a>
+
+</ol>
+
+<div id="目录-配置命令行"><h2 id="配置命令行" class="header"><a href="#目录-配置命令行">配置命令行</a></h2></div>
+<p>
+<a href="index.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+宏定义
+
+<ul>
+<li>
+定义信息输出接口函数(使用myprint.h里的myprint_func格式输出函数为例)
+
+<ul>
+<li>
+添加myprintf.c函数头文件 并在myprintf.h定义PRINTF_INFO_EN
+
+<li>
+将命令输出与打印输出函数对接
+
+<ul>
+<li>
+#define DBG_CMD_PRN(format, ...) printf(format, ##__VA_ARGS__)
+
+</ul>
+</ul>
+<li>
+定义命令行使能宏
+
+<ul>
+<li>
+使能命令行,必须在打印输出函数有效情况下,才有意义
+
+<ul>
+<li>
+#define DBG_CMD_EN    // 屏蔽关闭所以模块命令行功能
+
+</ul>
+<li>
+当不使能此处宏时,整个工程命令行将不被编译
+
+</ul>
+<li>
+定义命令注册最大模块(默认32个)
+            #define DBG_CMD_LIST_NUM       32 // 最大注册模块个数
+
+<li>
+根据需求定义命令各种类型参数个数(下列为默认个数值)
+
+<ul>
+<li>
+#define PARAM_1BYTE_NUM        3  // "1" 1byte
+
+<li>
+#define PARAM_2BYTE_NUM        3  // "2" 2byte
+
+<li>
+#define PARAM_4BYTE_NUM        1  // "4" 4byte
+
+<li>
+#define PARAM_FOLAT_NUM        1  // "f" float
+
+<li>
+#define PARAM_STRING_NUM       2  // "s" string
+
+<li>
+#define PARAM_STR_LEN          16 // "s" string 接收参数字符串长度
+
+</ul>
+</ul>
+<li>
+函数注册初始化
+
+<ul>
+<li>
+dbg_cmd_init(1)      // 0:上电默认关闭命令行 1:上电默认启动命令
+
+<li>
+dbg_cmd_rxd(rxd);    // 串口接收字符输入函数
+
+<li>
+dbg_cmd_1s_thread(); // 每秒调用一次函数
+
+</ul>
+</ul>
+
+<div id="目录-注册命令行"><h2 id="注册命令行" class="header"><a href="#目录-注册命令行">注册命令行</a></h2></div>
+<p>
+<a href="index.html#目录">返回目录</a>
+</p>
+
+
+<pre  C>
+
+char test_port[2] = 0;
+void set_port_val(char px,char val)
+{
+    switch(px){
+        case 0:
+            test_port[0] = val;
+        break;
+        case 1:
+            test_port[1] = val;
+        break;
+    }
+}
+/************************************************************************/
+/*     dbg_cmd Interface                                                */
+/************************************************************************/
+#include "dbg_cmd.h" // 屏蔽关闭此模块命令行调试
+#ifdef DBG_CMD_EN
+static bool dbg_cmd_func()
+{
+    if (dbg_cmd_exec("help", "", "")) {
+        DBG_CMD_PRN(".xxxx\r\n");
+        return false;
+    }
+    if (dbg_cmd_exec(".exit", "", "")) {
+        // 通知模块 系统退出 模块可用设置退出系统后的参数状态 如关闭打印等级
+        return false;
+    }
+    if (dbg_cmd_exec(".xxxx", "", "")) {
+        // 收集打印此命令 一下命令信息 直到此模块函数结束
+        dbg_cmd_print_msg_en();
+    }
+    if (dbg_cmd_exec("xxxxMsg", "", "")) {
+        DBG_CMD_PRN("port0:%#02X port1:%#02X\r\n",test_port[0],test_port[1]);
+        return true;
+    }
+    if (dbg_cmd_exec("SetPortVal", "11", "&lt;0,1&gt; &lt;0~0xFF&gt;")) {
+        set_port_val(get_param_char(0),get_param_char(1));
+        return true;
+    }
+}
+void xxxx_init()
+{
+#ifdef DBG_CMD_EN
+    dbg_cmd_add_list((int)dbg_cmd_func);
+#endif
+}
+
+</pre>
+
+
+<div id="目录-命令规则"><h2 id="命令规则" class="header"><a href="#目录-命令规则">命令规则</a></h2></div>
+<p>
+<a href="index.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+使用串口进行命令行交互
+
+<li>
+命令以回车结束执行
+
+<li>
+命令字符串不区分大小写
+
+<li>
+整个工程命令字符必须唯一,否则只执行第一个出现的相同命令
+
+<li>
+命令格式:<span id="目录-命令规则-命令字符串"></span><strong id="命令字符串">命令字符串</strong> <em>[H]参数1 [H]参数2 [H]参数3 [H]参数4</em>&lt;回车&gt;
+
+<ul>
+<li>
+说明:[]为可选项,当参数前有H时,此时参数为十六进制模式
+
+</ul>
+</ul>
+
+<table>
+<tr>
+<th>
+命令
+</th>
+<th>
+功能
+</th>
+</tr>
+<tr>
+<td>
+inker
+</td>
+<td>
+登录命令行
+</td>
+</tr>
+<tr>
+<td>
+exit
+</td>
+<td>
+退出命令行(通知各模块)
+</td>
+</tr>
+<tr>
+<td>
+help
+</td>
+<td>
+打印注册命令所以模块列表
+</td>
+</tr>
+<tr>
+<td>
+.xxx
+</td>
+<td>
+打印指定xxx模块命令列表
+</td>
+</tr>
+<tr>
+<td>
+xxxmsg
+</td>
+<td>
+打印模块参数信息
+</td>
+</tr>
+</table>
+
+<div id="目录-命令使用"><h2 id="命令使用" class="header"><a href="#目录-命令使用">命令使用</a></h2></div>
+<p>
+<a href="index.html#目录">返回目录</a>
+</p>
+
+<ul>
+<li>
+查看xxx模块命令列表
+
+<ul>
+<li>
+.xxx&lt;回车&gt;
+
+<li>
+返回xxx模块命令列表:命令 参数表 帮助信息
+
+</ul>
+<li>
+查看模块参数信息
+
+<ul>
+<li>
+.xxxmsg&lt;回车&gt;
+
+</ul>
+<li>
+设置p0的值为10
+
+<ul>
+<li>
+setportval 0 10 
+
+<li>
+setportval 0 ha 
+
+</ul>
+</ul>
+
+<div id="目录-改进项"><h2 id="改进项" class="header"><a href="#目录-改进项">改进项</a></h2></div>
+<p>
+<a href="index.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+添加模块登录通知项 (参考退出命令)
+
+</ul>
+
+</body>
+</html>

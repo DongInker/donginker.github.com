@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../../style.css">
+<title>PyCode_Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<p>
+<a href="..\index.html">返回上一级</a>
+</p>
+
+<div id="目录"><h2 id="目录" class="header"><a href="#目录">目录</a></h2></div>
+<p>
+<a href="PyCode_Home.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="PyCode_Home.html#数组运算">#数组运算</a>
+
+<li>
+<a href="PyCode_Home.html#正则">#正则</a>
+
+</ul>
+
+
+<div id="目录-数组运算"><h3 id="数组运算" class="header"><a href="#目录-数组运算">数组运算</a></h3></div>
+<p>
+<a href="PyCode_Home.html#目录">返回目录</a>
+</p>
+
+<pre>
+A = [2,3,4];
+B = [4,5,6];
+
+c = [2*b for a in A];
+d = [a+b for a,b in zip(A,B)];
+
+&gt;&gt;&gt;print(d[0]);
+6
+
+&gt;&gt;&gt;print(d)
+[6,8,10]
+
+</pre>
+
+<div id="正则"><h2 id="正则" class="header"><a href="#正则">正则</a></h2></div>
+<p>
+<a href="PyCode_Home.html#目录">返回目录</a>
+</p>
+<pre>
+'''
+# 特殊字符需要前面加\  . ^ $ * + ? { } [ ] \ | ( )
+# | 多个表达式或关系
+# ^ 开始 $ 结束
+# ? 匹配一次或零次
+# + 匹配一次或多次
+# * 匹配零次或多次
+# \d* 匹配零次或多次数字
+# \w* 匹配零次或多次数字大小字母[A-Za-z0-9_]
+# \.? 匹配一次或零次小数点
+# x.x|.x|x.
+'''
+</pre>
+
+<ul>
+<li>
+十进制数值
+<pre>
+    ReFloat = "([ ]*[-+]?[0-9]\d*\.?[0-9]\d*|[ ]*[-+]?\.?[0-9]\d*|[ ]*[-+]?[0-9]\d*\.?)";
+    PlotReStr = ".*"  + "dcU:" + ReFloat + " AdcUv" + ".*";
+    iter = re.finditer(PlotReStr,data);
+    for i in iter:
+        WaveAdcU.append(float(i.group(1)));
+</pre>
+
+</ul>
+  
+  
+  
+<ul>
+<li>
+十六进制数值
+<pre>
+    ReHex = "([0X]?[0-9a-fA-F]\w*)";
+    PlotReStr = ".*"  + "dcU:" + ReHex + " AdcUv" + ".*";
+    iter = re.finditer(PlotReStr,data);
+    for i in iter:
+        WaveAdcU.append(float(i.group(1)));
+</pre>
+
+</ul>
+
+</body>
+</html>

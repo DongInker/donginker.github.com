@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>PuHuaGPIO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+</head>
+<body>
+
+<p>
+<a href="KICAD_Home.html">返回上一级</a>
+</p>
+
+<ul>
+<li>
+如何设计测试地 方便万用表 示波器接地测试 
+
+<ul>
+<li>
+目前使用铜柱
+
+</ul>
+</ul>
+
+<p>
+PuHuaGPIO
+</p>
+
+<table>
+<tr>
+<th>
+接口类型
+</th>
+<th>
+Pin1
+</th>
+<th>
+Pin2
+</th>
+<th>
+Pin3
+</th>
+<th>
+Pin4
+</th>
+<th>
+Pin5
+</th>
+<th>
+Pin6
+</th>
+<th>
+Pin7
+</th>
+<th>
+Pin8
+</th>
+</tr>
+<tr>
+<td>
+电池
+</td>
+<td>
+GND
+</td>
+<td>
+B+
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+DC+-
+</td>
+<td>
+GND
+</td>
+<td>
+V+
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+DC+0-
+</td>
+<td>
+GND
+</td>
+<td>
+V+
+</td>
+<td>
+V-
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+USB
+</td>
+<td>
+GND
+</td>
+<td>
+D+
+</td>
+<td>
+D-
+</td>
+<td>
+VBUS
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+IIC
+</td>
+<td>
+GND
+</td>
+<td>
+SDA
+</td>
+<td>
+SCK
+</td>
+<td>
+Vcc
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+TTL
+</td>
+<td>
+GND
+</td>
+<td>
+Rxd
+</td>
+<td>
+Txd
+</td>
+<td>
+Vcc
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+RS232
+</td>
+<td>
+GND
+</td>
+<td>
+Rxd
+</td>
+<td>
+Txd
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+RS485
+</td>
+<td>
+GND
+</td>
+<td>
+A+
+</td>
+<td>
+B-
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+CAN
+</td>
+<td>
+GND
+</td>
+<td>
+A+
+</td>
+<td>
+B-
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+SWD
+</td>
+<td>
+GND
+</td>
+<td>
+RST
+</td>
+<td>
+SWDIO
+</td>
+<td>
+SWCLK
+</td>
+<td>
+3.3V
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+JTAG
+</td>
+<td>
+GND
+</td>
+<td>
+TDI
+</td>
+<td>
+TMS
+</td>
+<td>
+TDO
+</td>
+<td>
+TCK
+</td>
+<td>
+3.3V
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+Key
+</td>
+<td>
+GND
+</td>
+<td>
+LED1
+</td>
+<td>
+LED2
+</td>
+<td>
+KEY1
+</td>
+<td>
+KEY2
+</td>
+<td>
+KEY3
+</td>
+<td>
+KEY4
+</td>
+<td>
+Vcc
+</td>
+</tr>
+<tr>
+<td>
+380保护
+</td>
+<td>
+GND
+</td>
+<td>
+频率
+</td>
+<td>
+接地
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+信号输出
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+信号输入
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+
+<p>
+ExBus_2x5P_Host
+<table>
+<tr>
+<th>
+&nbsp;
+</th>
+<th>
+Pin2
+</th>
+<th>
+Pin4
+</th>
+<th>
+Pin6
+</th>
+<th>
+Pin8
+</th>
+<th>
+Pin10
+</th>
+</tr>
+<tr>
+<th rowspan="2">
+Host
+</th>
+<th>
+CAN-
+</th>
+<th>
+CAN+
+</th>
+<th>
+Gnd
+</th>
+<th>
+TXD
+</th>
+<th>
+RXD
+</th>
+</tr>
+<tr>
+<th>
+SCK
+</th>
+<th>
+SDA
+</th>
+<th>
+Gnd
+</th>
+<th>
+INT
+</th>
+<th>
+5V
+</th>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+Pin1
+</td>
+<td>
+Pin3
+</td>
+<td>
+Pin5
+</td>
+<td>
+Pin7
+</td>
+<td>
+Pin9
+</td>
+</tr>
+</table>
+</p>
+
+<p>
+ExBus_2x5P_Slave
+<table>
+<tr>
+<th>
+&nbsp;
+</th>
+<th>
+Pin2
+</th>
+<th>
+Pin4
+</th>
+<th>
+Pin6
+</th>
+<th>
+Pin8
+</th>
+<th>
+Pin10
+</th>
+</tr>
+<tr>
+<th rowspan="2">
+Slave
+</th>
+<th>
+CAN-
+</th>
+<th>
+CAN+
+</th>
+<th>
+Gnd
+</th>
+<th>
+RXD
+</th>
+<th>
+TXD
+</th>
+</tr>
+<tr>
+<th>
+SCK
+</th>
+<th>
+SDA
+</th>
+<th>
+Gnd
+</th>
+<th>
+INT
+</th>
+<th>
+5V
+</th>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+Pin1
+</td>
+<td>
+Pin3
+</td>
+<td>
+Pin5
+</td>
+<td>
+Pin7
+</td>
+<td>
+Pin9
+</td>
+</tr>
+</table>
+使用TTL串口总线必须让从机发送管脚为OD模式
+Slave_Txd配置位OD模式
+</p>
+
+<div id="FPGA 接口定义对照表"><h3 id="FPGA 接口定义对照表" class="header"><a href="#FPGA 接口定义对照表">FPGA 接口定义对照表</a></h3></div>
+<pre>
+
+| NUM | 6   | 8   | 10  | 12  | 14  | 16  | 18  | 20  | 22  | 24  | 26  | 28  | 30  |
+| GND | 2   | 2   | 2   | 4   | 4   | 4   | 4   | 4   | 6   | 6   | 6   | 6   | 6   |
+| IO  | 4   | 6   | 8   | 8   | 10  | 12  | 14  | 16  | 16  | 18  | 20  | 22  | 24  |
+| 01  |     |     |     |     |     |     |     |     |     |     |     |     | 4   |
+| 02  |     |     |     |     |     |     |     |     |     |     |     | 3   | 3   |
+| 03  |     |     |     |     |     |     |     |     |     |     | 2   | 2   | 2   |
+| 04  |     |     |     |     |     |     |     |     |     | 1   | 1   | 1   | 1   |
+| 05  |     |     |     |     |     |     |     |     | Gnd | Gnd | Gnd | Gnd | Gnd |
+| 06  |     |     |     |     |     |     |     | 4   | 4   | 4   | 4   | 4   | 4   |
+| 07  |     |     |     |     |     |     | 3   | 3   | 3   | 3   | 3   | 3   | 3   |
+| 08  |     |     |     |     |     | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   |
+| 09  |     |     |     |     | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   |
+| 10  |     |     |     | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd |
+| 11  |     |     | 4   | 4   | 4   | 4   | 4   | 4   | 4   | 4   | 4   | 4   | 4   |
+| 12  |     | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   |
+| 13  | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   |
+| 14  | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   |
+| 15  | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd |
+| 16  | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd |
+| 17  | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   |
+| 18  | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   |
+| 19  |     | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   | 3   |
+| 20  |     |     | 4   | 4   | 4   | 4   | 4   | 4   | 4   | 4   | 4   | 4   | 4   |
+| 21  |     |     |     | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd | Gnd |
+| 22  |     |     |     |     | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   | 1   |
+| 23  |     |     |     |     |     | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 2   |
+| 24  |     |     |     |     |     |     | 3   | 3   | 3   | 3   | 3   | 3   | 3   |
+| 25  |     |     |     |     |     |     |     | 4   | 4   | 4   | 4   | 4   | 4   |
+| 26  |     |     |     |     |     |     |     |     | Gnd | Gnd | Gnd | Gnd | Gnd |
+| 27  |     |     |     |     |     |     |     |     |     | 1   | 1   | 1   | 1   |
+| 28  |     |     |     |     |     |     |     |     |     |     | 2   | 2   | 2   |
+| 29  |     |     |     |     |     |     |     |     |     |     |     | 3   | 3   |
+| 30  |     |     |     |     |     |     |     |     |     |     |     |     | 4   |
+
+| NUM | 3   | 5   | 7   | 9   | 11  | 13  | 15  | 17  | 19  | 21  | 23  | 25  | 27  | 29  | 31  | 33  |
+| GND | 1   | 1   | 2   | 2   | 3   | 3   | 3   | 4   | 4   | 4   | 5   | 5   | 5   | 6   | 6   | 6   |
+| IO  | 2   | 4   | 5   | 7   | 8   | 10  | 12  | 13  | 15  | 17  | 18  | 20  | 22  | 23  | 25  | 27  |
+| 01  |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     | Gnd |
+| 02  |     |     |     |     |     |     |     |     |     |     |     |     |     |     | Gnd | D   |
+| 03  |     |     |     |     |     |     |     |     |     |     |     |     |     | Gnd | D   | D   |
+| 04  |     |     |     |     |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   |
+| 05  |     |     |     |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   |
+| 06  |     |     |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | D   |
+| 07  |     |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   | Gnd | Gnd | Gnd |
+| 08  |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   |
+| 09  |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   | D   |
+| 10  |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 11  |     |     |     |     |     | Gnd | D   | D   | D   | D   | Gnd | Gnd | Gnd | D   | D   | D   |
+| 12  |     |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 13  |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 14  |     |     | Gnd | D   | D   | D   | D   | Gnd | Gnd | Gnd | D   | D   | D   | Gnd | Gnd | Gnd |
+| 15  |     | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 16  | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 17  | Gnd | Gnd | D   | D   | Gnd | Gnd | Gnd | D   | D   | D   | Gnd | Gnd | Gnd | D   | D   | D   |
+| 18  | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 19  |     | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 20  |     |     | Gnd | D   | D   | D   | D   | Gnd | Gnd | Gnd | D   | D   | D   | Gnd | Gnd | Gnd |
+| 21  |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 22  |     |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 23  |     |     |     |     |     | Gnd | D   | D   | D   | D   | Gnd | Gnd | Gnd | D   | D   | D   |
+| 24  |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   | D   | D   |
+| 25  |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | D   | D   | D   | D   |
+| 26  |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | Gnd | Gnd | Gnd |
+| 27  |     |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | D   | D   |
+| 28  |     |     |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   | D   |
+| 29  |     |     |     |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   | D   |
+| 30  |     |     |     |     |     |     |     |     |     |     |     |     | Gnd | D   | D   | D   |
+| 31  |     |     |     |     |     |     |     |     |     |     |     |     |     | Gnd | D   | D   |
+| 32  |     |     |     |     |     |     |     |     |     |     |     |     |     |     | Gnd | D   |
+| 33  |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     | Gnd |
+</pre>
+
+</body>
+</html>

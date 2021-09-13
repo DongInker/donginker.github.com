@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>Gerber</title>
+<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<p>
+<a href="index.html">返回上一级</a>
+</p>
+
+<div id="目录"><h2 id="目录" class="header"><a href="#目录">目录</a></h2></div>
+<p>
+<a href="Gerber.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="Gerber.html#生成Gerber意义">#生成Gerber意义</a>
+
+<li>
+<a href="Gerber.html#各层使用说明">#各层使用说明</a>
+
+<li>
+<a href="Gerber.html#KiCad导出Gerber文件">#KiCad导出Gerber文件</a>
+
+<li>
+<a href="Gerber.html#KiCad导出钻孔文件">#KiCad导出钻孔文件</a>
+
+</ul>
+
+<div id="提供给PCB厂家文件"><h2 id="提供给PCB厂家文件" class="header"><a href="#提供给PCB厂家文件">提供给PCB厂家文件</a></h2></div>
+<ul>
+<li>
+钻孔数据
+
+<ul>
+<li>
+非金属化钻孔 ***-NPTH.drl         (供PCB制板)
+
+<li>
+金属化钻孔   ***-PTH.drl          (供PCB制板)
+
+</ul>
+<li>
+GERBER文件
+
+<ol>
+<li>
+电路板边界  ***-edge-cuts.gbr    (供PCB制板)
+
+<li>
+内1层       ***-in1-cu.gbr       (供PCB制板)
+
+<li>
+内2层       ***-in2-cu.gbr       (供PCB制板)
+
+<li>
+顶层铜层    ***-f-cu.gbr         (供PCB制板)
+
+<li>
+顶层阻焊    ***-f-mask.gbr       (供PCB制板)
+
+<li>
+底层铜层    ***-b-cu.gbr         (供PCB制板)
+
+<li>
+底层阻焊    ***-b-mask.gbr       (供PCB制板)
+
+<li>
+底层丝印    ***-b-silks.gbr      (可选)
+
+<li>
+顶层丝印    ***-f-silks.gbr      (可选)
+
+<li>
+底层锡膏    ***-b-paste.gbr      (可选)
+
+<li>
+顶层锡膏    ***-f-paste.gbr      (可选)
+
+</ol>
+</ul>
+
+
+<div id="提供给贴装厂家文件"><h2 id="提供给贴装厂家文件" class="header"><a href="#提供给贴装厂家文件">提供给贴装厂家文件</a></h2></div>
+<ol>
+<li>
+底层锡膏    paste.gbr(制作钢网)
+
+<li>
+顶层锡膏    paste.gbr(制作钢网)
+
+<li>
+顶层制造层  F.Fab
+
+<li>
+底层制造层  B.Fab
+
+<li>
+坐标文件
+
+<li>
+BOM
+
+</ol>
+
+<div id="提供采购"><h2 id="提供采购" class="header"><a href="#提供采购">提供采购</a></h2></div>
+<p>
+采购封装清单文件 (型号 封装 价格)
+</p>
+
+
+<div id="提供采购-生成Gerber意义"><h3 id="生成Gerber意义" class="header"><a href="#提供采购-生成Gerber意义">生成Gerber意义</a></h3></div>
+<p>
+<a href="Gerber.html#目录">返回目录</a>
+</p>
+<pre>
+大多数工程师都习惯于将PCB文件设计好后直接送PCB厂加工,而国际上比较流行的做法是
+将PCB文件转换为GERBER文件和钻孔数据后交PCB厂,为何要“多此一举”呢？
+
+因为电子工程师和PCB工程师对PCB的理解不一样,由PCB工厂转换出来的GERBER文件可能不是您所要的,
+
+如您在设计时将元件的参数都定义在PCB文件中,您又不想让这些参数显示在PCB成品上,
+您未作说明,PCB厂依葫芦画瓢将这些参数都留在了PCB成品上，这只是一个例子。
+若您自己将PCB文件转换成GERBER文件就可避免此类事件发生。
+
+还有就是为了保护自己的劳动成果不被窃取，公司的机密不被盗窃。
+个人认为这才是GERBER文件的作用。
+</pre>
+ 
+<div id="提供采购-各层使用说明"><h3 id="各层使用说明" class="header"><a href="#提供采购-各层使用说明">各层使用说明</a></h3></div>
+<p>
+<a href="Gerber.html#目录">返回目录</a>
+</p>
+<ul>
+<li>
+<a href="Gerber.html#粘胶层x.Adhes">#粘胶层x.Adhes</a>
+
+<li>
+<a href="Gerber.html#锡膏层x.Paste">#锡膏层x.Paste</a>
+
+<li>
+<a href="Gerber.html#丝印层x.SilkS">#丝印层x.SilkS</a>
+
+<li>
+<a href="Gerber.html#阻焊层x.Mask">#阻焊层x.Mask</a>
+
+<li>
+<a href="Gerber.html#封装装配层x.Fab">#封装装配层x.Fab</a>
+
+<li>
+<a href="Gerber.html#边框轮廓层Edge.Cuts">#边框轮廓层Edge.Cuts</a>
+
+<li>
+<a href="Gerber.html#封装外框层x.CrtYd">#封装外框层x.CrtYd</a>
+
+</ul>
+
+
+<div id="提供采购-各层使用说明-粘胶层x.Adhes"><h4 id="粘胶层x.Adhes" class="header"><a href="#提供采购-各层使用说明-粘胶层x.Adhes">粘胶层x.Adhes</a></h4></div>
+<p>
+<a href="Gerber.html#各层使用说明">返回 各层使用说明列表</a>
+</p>
+
+<ul>
+<li>
+作用
+
+<ul>
+<li>
+重心高容易倒的器件提供固定
+
+<ul>
+<li>
+贴片高的电解电容
+
+</ul>
+</ul>
+</ul>
+
+
+<div id="提供采购-各层使用说明-锡膏层x.Paste"><h4 id="锡膏层x.Paste" class="header"><a href="#提供采购-各层使用说明-锡膏层x.Paste">锡膏层x.Paste</a></h4></div>
+<p>
+<a href="Gerber.html#各层使用说明">返回 各层使用说明列表</a>
+</p>
+
+<ul>
+<li>
+作用
+
+<ul>
+<li>
+提供制钢网使用
+
+</ul>
+</ul>
+
+
+<div id="提供采购-各层使用说明-丝印层x.SilkS"><h4 id="丝印层x.SilkS" class="header"><a href="#提供采购-各层使用说明-丝印层x.SilkS">丝印层x.SilkS</a></h4></div>
+<p>
+<a href="Gerber.html#各层使用说明">返回 各层使用说明列表</a>
+</p>
+
+
+<ul>
+<li>
+作用
+
+<ul>
+<li>
+器件外形图
+
+<li>
+提供安装接口说明指示
+
+<li>
+各电源测试接口信息
+
+<li>
+重要提示信息
+
+</ul>
+</ul>
+
+<ul>
+<li>
+组成元素
+
+<ul>
+<li>
+参考编号 (维一ID号 提供沟通交流识别)
+
+<li>
+封装外形图 (提供正确焊接指示)
+
+<ul>
+<li>
+极性电容比较正极性端
+
+<li>
+二极管标记负极性端
+
+<li>
+IC标记第一管脚
+
+<li>
+插座标记第一管脚
+
+</ul>
+</ul>
+</ul>
+
+<div id="提供采购-各层使用说明-阻焊层x.Mask"><h4 id="阻焊层x.Mask" class="header"><a href="#提供采购-各层使用说明-阻焊层x.Mask">阻焊层x.Mask</a></h4></div>
+<p>
+<a href="Gerber.html#各层使用说明">返回 各层使用说明列表</a>
+</p>
+
+<ul>
+<li>
+作用
+
+<ul>
+<li>
+提供PCB绿油层
+
+<li>
+大电流镀锡
+
+</ul>
+</ul>
+
+<div id="提供采购-各层使用说明-封装装配层x.Fab"><h4 id="封装装配层x.Fab" class="header"><a href="#提供采购-各层使用说明-封装装配层x.Fab">封装装配层x.Fab</a></h4></div>
+<p>
+<a href="Gerber.html#各层使用说明">返回 各层使用说明列表</a>
+</p>
+
+<ul>
+<li>
+作用
+
+<ul>
+<li>
+提供PCB直插件焊接参考
+
+<li>
+检查核对焊机是否正确
+
+</ul>
+</ul>
+
+<ul>
+<li>
+组成元素
+
+<ul>
+<li>
+参考编号 (维一ID号 提供沟通交流识别)
+
+<li>
+         (焊接具体器件值)
+
+<li>
+封装外形图 (提供正确焊接指示)
+
+<ul>
+<li>
+极性电容比较正极性端
+
+<li>
+二极管标记负极性端
+
+<li>
+IC标记第一管脚
+
+<li>
+插座标记第一管脚
+
+</ul>
+</ul>
+</ul>
+
+<div id="提供采购-各层使用说明-边框轮廓层Edge.Cuts"><h4 id="边框轮廓层Edge.Cuts" class="header"><a href="#提供采购-各层使用说明-边框轮廓层Edge.Cuts">边框轮廓层Edge.Cuts</a></h4></div>
+<p>
+<a href="Gerber.html#各层使用说明">返回 各层使用说明列表</a>
+</p>
+
+<ul>
+<li>
+作用
+
+<ul>
+<li>
+定义PCB板边框大小
+
+<li>
+PCB挖槽
+
+</ul>
+</ul>
+
+<div id="提供采购-各层使用说明-封装外框层x.CrtYd"><h4 id="封装外框层x.CrtYd" class="header"><a href="#提供采购-各层使用说明-封装外框层x.CrtYd">封装外框层x.CrtYd</a></h4></div>
+<p>
+<a href="Gerber.html#各层使用说明">返回 各层使用说明列表</a>
+</p>
+
+<ul>
+<li>
+作用
+
+<ul>
+<li>
+提供器件大小轮廓
+
+<li>
+提供器件与器件是否重叠检查
+
+</ul>
+</ul>
+
+
+<div id="KiCad导出Gerber文件"><h2 id="KiCad导出Gerber文件" class="header"><a href="#KiCad导出Gerber文件">KiCad导出Gerber文件</a></h2></div>
+<p>
+<a href="Gerber.html#目录">返回目录</a>
+</p>
+<ol>
+<li>
+<img src="Image/生成光绘制作PCB参数.png" alt="生成光绘制作PCB参数" />
+
+</ol>
+
+<div id="KiCad导出钻孔文件"><h2 id="KiCad导出钻孔文件" class="header"><a href="#KiCad导出钻孔文件">KiCad导出钻孔文件</a></h2></div>
+<p>
+<a href="Gerber.html#目录">返回目录</a>
+</p>
+<ol>
+<li>
+<img src="Image/生成钻孔文件参数.png" alt="生成钻孔文件参数" />
+
+</ol>
+
+</body>
+</html>
