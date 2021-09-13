@@ -3,32 +3,32 @@
 <head>
 <link rel="Stylesheet" type="text/css" href="../../../style.css">
 <title>PyCode_Home</title>
-<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
 <p>
-<a href="..\index.html">������һ��</a>
+<a href="..\index.html">返回上一级</a>
 </p>
 
-<div id="Ŀ¼"><h2 id="Ŀ¼" class="header"><a href="#Ŀ¼">Ŀ¼</a></h2></div>
+<div id="目录"><h2 id="目录" class="header"><a href="#目录">目录</a></h2></div>
 <p>
-<a href="PyCode_Home.html#Ŀ¼">����Ŀ¼</a>
+<a href="PyCode_Home.html#目录">返回目录</a>
 </p>
 <ul>
 <li>
-<a href="PyCode_Home.html#��������">#��������</a>
+<a href="PyCode_Home.html#数组运算">#数组运算</a>
 
 <li>
-<a href="PyCode_Home.html#����">#����</a>
+<a href="PyCode_Home.html#正则">#正则</a>
 
 </ul>
 
 
-<div id="Ŀ¼-��������"><h3 id="��������" class="header"><a href="#Ŀ¼-��������">��������</a></h3></div>
+<div id="目录-数组运算"><h3 id="数组运算" class="header"><a href="#目录-数组运算">数组运算</a></h3></div>
 <p>
-<a href="PyCode_Home.html#Ŀ¼">����Ŀ¼</a>
+<a href="PyCode_Home.html#目录">返回目录</a>
 </p>
 
 <pre>
@@ -46,28 +46,28 @@ d = [a+b for a,b in zip(A,B)];
 
 </pre>
 
-<div id="����"><h2 id="����" class="header"><a href="#����">����</a></h2></div>
+<div id="正则"><h2 id="正则" class="header"><a href="#正则">正则</a></h2></div>
 <p>
-<a href="PyCode_Home.html#Ŀ¼">����Ŀ¼</a>
+<a href="PyCode_Home.html#目录">返回目录</a>
 </p>
 <pre>
 '''
-# �����ַ���Ҫǰ���\  . ^ $ * + ? { } [ ] \ | ( )
-# | �������ʽ���ϵ
-# ^ ��ʼ $ ����
-# ? ƥ��һ�λ����
-# + ƥ��һ�λ���
-# * ƥ����λ���
-# \d* ƥ����λ�������
-# \w* ƥ����λ������ִ�С��ĸ[A-Za-z0-9_]
-# \.? ƥ��һ�λ����С����
+# 特殊字符需要前面加\  . ^ $ * + ? { } [ ] \ | ( )
+# | 多个表达式或关系
+# ^ 开始 $ 结束
+# ? 匹配一次或零次
+# + 匹配一次或多次
+# * 匹配零次或多次
+# \d* 匹配零次或多次数字
+# \w* 匹配零次或多次数字大小字母[A-Za-z0-9_]
+# \.? 匹配一次或零次小数点
 # x.x|.x|x.
 '''
 </pre>
 
 <ul>
 <li>
-ʮ������ֵ
+十进制数值
 <pre>
     ReFloat = "([ ]*[-+]?[0-9]\d*\.?[0-9]\d*|[ ]*[-+]?\.?[0-9]\d*|[ ]*[-+]?[0-9]\d*\.?)";
     PlotReStr = ".*"  + "dcU:" + ReFloat + " AdcUv" + ".*";
@@ -82,7 +82,7 @@ d = [a+b for a,b in zip(A,B)];
   
 <ul>
 <li>
-ʮ��������ֵ
+十六进制数值
 <pre>
     ReHex = "([0X]?[0-9a-fA-F]\w*)";
     PlotReStr = ".*"  + "dcU:" + ReHex + " AdcUv" + ".*";

@@ -3,43 +3,43 @@
 <head>
 <link rel="Stylesheet" type="text/css" href="../../style.css">
 <title>index</title>
-<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
 <p>
-<a href="..\index.html">������һ��</a>
+<a href="..\index.html">返回上一级</a>
 </p>
 
-<div id="Ŀ¼"><h1 id="Ŀ¼" class="header"><a href="#Ŀ¼">Ŀ¼</a></h1></div>
+<div id="目录"><h1 id="目录" class="header"><a href="#目录">目录</a></h1></div>
 <p>
-<a href="index.html#Ŀ¼">����Ŀ¼</a>
+<a href="index.html#目录">返回目录</a>
 </p>
 <ul>
 <li>
-<a href="index.html#Դ����">#Դ����</a>
+<a href="index.html#源代码">#源代码</a>
 
 <li>
-<a href="index.html#����������">#����������</a>
+<a href="index.html#配置命令行">#配置命令行</a>
 
 <li>
-<a href="index.html#ע��������">#ע��������</a>
+<a href="index.html#注册命令行">#注册命令行</a>
 
 <li>
-<a href="index.html#�������">#�������</a>
+<a href="index.html#命令规则">#命令规则</a>
 
 <li>
-<a href="index.html#����ʹ��">#����ʹ��</a>
+<a href="index.html#命令使用">#命令使用</a>
 
 <li>
-<a href="index.html#�Ľ���">#�Ľ���</a>
+<a href="index.html#改进项">#改进项</a>
 
 </ul>
 
-<div id="Ŀ¼-Դ����"><h2 id="Դ����" class="header"><a href="#Ŀ¼-Դ����">Դ����</a></h2></div>
+<div id="目录-源代码"><h2 id="源代码" class="header"><a href="#目录-源代码">源代码</a></h2></div>
 <p>
-<a href="index.html#Ŀ¼">����Ŀ¼</a>
+<a href="index.html#目录">返回目录</a>
 </p>
 
 <ol>
@@ -51,24 +51,24 @@
 
 </ol>
 
-<div id="Ŀ¼-����������"><h2 id="����������" class="header"><a href="#Ŀ¼-����������">����������</a></h2></div>
+<div id="目录-配置命令行"><h2 id="配置命令行" class="header"><a href="#目录-配置命令行">配置命令行</a></h2></div>
 <p>
-<a href="index.html#Ŀ¼">����Ŀ¼</a>
+<a href="index.html#目录">返回目录</a>
 </p>
 <ul>
 <li>
-�궨��
+宏定义
 
 <ul>
 <li>
-������Ϣ����ӿں���(ʹ��myprint.h���myprint_func��ʽ�������Ϊ��)
+定义信息输出接口函数(使用myprint.h里的myprint_func格式输出函数为例)
 
 <ul>
 <li>
-����myprintf.c����ͷ�ļ� ����myprintf.h����PRINTF_INFO_EN
+添加myprintf.c函数头文件 并在myprintf.h定义PRINTF_INFO_EN
 
 <li>
-������������ӡ��������Խ�
+将命令输出与打印输出函数对接
 
 <ul>
 <li>
@@ -77,27 +77,27 @@
 </ul>
 </ul>
 <li>
-����������ʹ�ܺ�
+定义命令行使能宏
 
 <ul>
 <li>
-ʹ��������,�����ڴ�ӡ���������Ч�����,��������
+使能命令行,必须在打印输出函数有效情况下,才有意义
 
 <ul>
 <li>
-#define DBG_CMD_EN    // ���ιر�����ģ�������й���
+#define DBG_CMD_EN    // 屏蔽关闭所以模块命令行功能
 
 </ul>
 <li>
-����ʹ�ܴ˴���ʱ,�������������н���������
+当不使能此处宏时,整个工程命令行将不被编译
 
 </ul>
 <li>
-��������ע�����ģ��(Ĭ��32��)
-            #define DBG_CMD_LIST_NUM       32 // ���ע��ģ�����
+定义命令注册最大模块(默认32个)
+            #define DBG_CMD_LIST_NUM       32 // 最大注册模块个数
 
 <li>
-��������������������Ͳ�������(����ΪĬ�ϸ���ֵ)
+根据需求定义命令各种类型参数个数(下列为默认个数值)
 
 <ul>
 <li>
@@ -116,29 +116,29 @@
 #define PARAM_STRING_NUM       2  // "s" string
 
 <li>
-#define PARAM_STR_LEN          16 // "s" string ���ղ����ַ�������
+#define PARAM_STR_LEN          16 // "s" string 接收参数字符串长度
 
 </ul>
 </ul>
 <li>
-����ע���ʼ��
+函数注册初始化
 
 <ul>
 <li>
-dbg_cmd_init(1)      // 0:�ϵ�Ĭ�Ϲر������� 1:�ϵ�Ĭ����������
+dbg_cmd_init(1)      // 0:上电默认关闭命令行 1:上电默认启动命令
 
 <li>
-dbg_cmd_rxd(rxd);    // ���ڽ����ַ����뺯��
+dbg_cmd_rxd(rxd);    // 串口接收字符输入函数
 
 <li>
-dbg_cmd_1s_thread(); // ÿ�����һ�κ���
+dbg_cmd_1s_thread(); // 每秒调用一次函数
 
 </ul>
 </ul>
 
-<div id="Ŀ¼-ע��������"><h2 id="ע��������" class="header"><a href="#Ŀ¼-ע��������">ע��������</a></h2></div>
+<div id="目录-注册命令行"><h2 id="注册命令行" class="header"><a href="#目录-注册命令行">注册命令行</a></h2></div>
 <p>
-<a href="index.html#Ŀ¼">����Ŀ¼</a>
+<a href="index.html#目录">返回目录</a>
 </p>
 
 
@@ -159,7 +159,7 @@ void set_port_val(char px,char val)
 /************************************************************************/
 /*     dbg_cmd Interface                                                */
 /************************************************************************/
-#include "dbg_cmd.h" // ���ιرմ�ģ�������е���
+#include "dbg_cmd.h" // 屏蔽关闭此模块命令行调试
 #ifdef DBG_CMD_EN
 static bool dbg_cmd_func()
 {
@@ -168,11 +168,11 @@ static bool dbg_cmd_func()
         return false;
     }
     if (dbg_cmd_exec(".exit", "", "")) {
-        // ֪ͨģ�� ϵͳ�˳� ģ����������˳�ϵͳ��Ĳ���״̬ ��رմ�ӡ�ȼ�
+        // 通知模块 系统退出 模块可用设置退出系统后的参数状态 如关闭打印等级
         return false;
     }
     if (dbg_cmd_exec(".xxxx", "", "")) {
-        // �ռ���ӡ������ һ��������Ϣ ֱ����ģ�麯������
+        // 收集打印此命令 一下命令信息 直到此模块函数结束
         dbg_cmd_print_msg_en();
     }
     if (dbg_cmd_exec("xxxxMsg", "", "")) {
@@ -194,29 +194,29 @@ void xxxx_init()
 </pre>
 
 
-<div id="Ŀ¼-�������"><h2 id="�������" class="header"><a href="#Ŀ¼-�������">�������</a></h2></div>
+<div id="目录-命令规则"><h2 id="命令规则" class="header"><a href="#目录-命令规则">命令规则</a></h2></div>
 <p>
-<a href="index.html#Ŀ¼">����Ŀ¼</a>
+<a href="index.html#目录">返回目录</a>
 </p>
 <ul>
 <li>
-ʹ�ô��ڽ��������н���
+使用串口进行命令行交互
 
 <li>
-�����Իس�����ִ��
+命令以回车结束执行
 
 <li>
-�����ַ��������ִ�Сд
+命令字符串不区分大小写
 
 <li>
-�������������ַ�����Ψһ,����ִֻ�е�һ�����ֵ���ͬ����
+整个工程命令字符必须唯一,否则只执行第一个出现的相同命令
 
 <li>
-�����ʽ:<span id="Ŀ¼-�������-�����ַ���"></span><strong id="�����ַ���">�����ַ���</strong> <em>[H]����1 [H]����2 [H]����3 [H]����4</em>&lt;�س�&gt;
+命令格式:<span id="目录-命令规则-命令字符串"></span><strong id="命令字符串">命令字符串</strong> <em>[H]参数1 [H]参数2 [H]参数3 [H]参数4</em>&lt;回车&gt;
 
 <ul>
 <li>
-˵��:[]Ϊ��ѡ��,������ǰ��Hʱ,��ʱ����Ϊʮ������ģʽ
+说明:[]为可选项,当参数前有H时,此时参数为十六进制模式
 
 </ul>
 </ul>
@@ -224,10 +224,10 @@ void xxxx_init()
 <table>
 <tr>
 <th>
-����
+命令
 </th>
 <th>
-����
+功能
 </th>
 </tr>
 <tr>
@@ -235,7 +235,7 @@ void xxxx_init()
 inker
 </td>
 <td>
-��¼������
+登录命令行
 </td>
 </tr>
 <tr>
@@ -243,7 +243,7 @@ inker
 exit
 </td>
 <td>
-�˳�������(֪ͨ��ģ��)
+退出命令行(通知各模块)
 </td>
 </tr>
 <tr>
@@ -251,7 +251,7 @@ exit
 help
 </td>
 <td>
-��ӡע����������ģ���б�
+打印注册命令所以模块列表
 </td>
 </tr>
 <tr>
@@ -259,7 +259,7 @@ help
 .xxx
 </td>
 <td>
-��ӡָ��xxxģ�������б�
+打印指定xxx模块命令列表
 </td>
 </tr>
 <tr>
@@ -267,38 +267,38 @@ help
 xxxmsg
 </td>
 <td>
-��ӡģ�������Ϣ
+打印模块参数信息
 </td>
 </tr>
 </table>
 
-<div id="Ŀ¼-����ʹ��"><h2 id="����ʹ��" class="header"><a href="#Ŀ¼-����ʹ��">����ʹ��</a></h2></div>
+<div id="目录-命令使用"><h2 id="命令使用" class="header"><a href="#目录-命令使用">命令使用</a></h2></div>
 <p>
-<a href="index.html#Ŀ¼">����Ŀ¼</a>
+<a href="index.html#目录">返回目录</a>
 </p>
 
 <ul>
 <li>
-�鿴xxxģ�������б�
+查看xxx模块命令列表
 
 <ul>
 <li>
-.xxx&lt;�س�&gt;
+.xxx&lt;回车&gt;
 
 <li>
-����xxxģ�������б�:���� ������ ������Ϣ
+返回xxx模块命令列表:命令 参数表 帮助信息
 
 </ul>
 <li>
-�鿴ģ�������Ϣ
+查看模块参数信息
 
 <ul>
 <li>
-.xxxmsg&lt;�س�&gt;
+.xxxmsg&lt;回车&gt;
 
 </ul>
 <li>
-����p0��ֵΪ10
+设置p0的值为10
 
 <ul>
 <li>
@@ -310,13 +310,13 @@ setportval 0 ha
 </ul>
 </ul>
 
-<div id="Ŀ¼-�Ľ���"><h2 id="�Ľ���" class="header"><a href="#Ŀ¼-�Ľ���">�Ľ���</a></h2></div>
+<div id="目录-改进项"><h2 id="改进项" class="header"><a href="#目录-改进项">改进项</a></h2></div>
 <p>
-<a href="index.html#Ŀ¼">����Ŀ¼</a>
+<a href="index.html#目录">返回目录</a>
 </p>
 <ul>
 <li>
-����ģ���¼֪ͨ�� (�ο��˳�����)
+添加模块登录通知项 (参考退出命令)
 
 </ul>
 
